@@ -1,0 +1,22 @@
+.tool-pagination {
+  @extend %clearfix;
+  padding: rem(10px 0);
+  text-align: right;
+
+  .prev,
+  .pages,
+  .next {
+    display: inline-block;
+    margin-left: rem(10px);
+  }
+
+  .pages {
+    list-style: none;
+
+    li {
+      display: inline-block;
+      list-style: none;
+      margin: rem(0 5px);
+    }
+  }
+}

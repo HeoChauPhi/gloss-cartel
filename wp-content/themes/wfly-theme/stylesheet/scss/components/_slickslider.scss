@@ -1,0 +1,20 @@
+.block-slider {
+  @include box-shadow($gray-33 rem(0px 0px 10px 0px));
+  background-color: $bg-feature;
+  display: none;
+
+  @include breakpoint(desktop) {
+    display: block;
+    margin-bottom: rem(-85px);
+  }
+
+  .slider--item {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    img {
+      visibility: hidden;
+    }
+  }
+}

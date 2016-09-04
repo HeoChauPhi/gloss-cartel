@@ -1,0 +1,6 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+  <h2 id="page-title">{{term.name}}</h2> 
+  {% include ["taxonomy-"~term.id~".twig", "taxonomy-"~term.taxonomy~".twig", 'taxonomy-tease.twig'] %}
+{% endblock %}

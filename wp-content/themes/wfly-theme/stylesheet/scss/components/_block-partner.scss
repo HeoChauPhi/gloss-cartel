@@ -1,0 +1,133 @@
+.block-partner--wrapper {
+  border-bottom: rem(1px) solid $color-border;
+  margin-bottom: rem(47px);
+  padding-bottom: rem(26px);
+}
+
+.block-partner {
+  @extend %clearfix;
+
+  @include breakpoint(tablet) {
+    margin: rem(0 -17px);
+  }
+
+  @include breakpoint(tablet_port) {
+    margin: rem(0 -7px);
+  }
+
+  @include breakpoint(desktop) {
+    margin: rem(0 -17px);
+  }
+
+  .partner--item {
+    float: none;
+    margin-bottom: rem(30px);
+    width: 100%;
+
+    @include breakpoint(tablet) {
+      float: left;
+      margin-bottom: rem(34px);
+      padding: rem(0 17px);
+      width: 50%;
+    }
+
+    @include breakpoint(tablet_port) {
+      margin-bottom: rem(14px);
+      padding: rem(0 7px);
+    }
+
+    @include breakpoint(desktop) {
+      float: left;
+      width: 25%;
+      padding: rem(0 17px);
+    }
+  }
+
+  .partner--container {
+    @include box-shadow($gray-86 rem(0px 2px 5px));
+    max-height: rem(200px);
+    min-height: rem(200px);
+    overflow: hidden;
+    position: relative;
+
+    .partner--image {
+      @include transition(all .3s);
+      background-color: $white;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      bottom: 0;
+      left: 0;
+      opacity: 1;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 9;
+
+      img {
+        visibility: hidden;
+      }
+    }
+
+    &:hover {
+      .partner--image {
+        @include transform(scale(1.1));
+        opacity: .2;
+      }
+
+      .partner--content {
+        bottom: 0;
+      }
+
+      .partner--title {
+        opacity: 0;
+      }
+    }
+  }
+
+  .partner--title {
+    @include quicksand;
+    @include text-shadow($black rem(1px 1px 1px));
+    @include transition(opacity .3s);
+    background-color: rgba($color-primary, .8);
+    bottom: rem(25px);
+    color: #fff;
+    color: $white;
+    font-size: rem(25px);
+    font-weight: 400;
+    opacity: 1;
+    padding: rem(10px 5px);
+    position: absolute;
+    text-align: center;
+    text-transform: capitalize;
+    width: 100%;
+    z-index: 10;
+  }
+
+  .partner--content {
+    @include transition(bottom .3s);
+    bottom: 100%;
+    height: 100%;
+    line-height: rem(27px);
+    overflow-y: auto;
+    padding: rem(20px 15px);
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    z-index: 11;
+  }
+
+  .partner--link {
+    &:before {
+      bottom: 0;
+      content: "";
+      height: 100%;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 100%;
+      z-index: 12;
+    }
+  }
+}

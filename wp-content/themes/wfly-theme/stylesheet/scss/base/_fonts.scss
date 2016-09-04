@@ -1,0 +1,25 @@
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url("../../fonts/helveticaneuemedium.eot?v=1.0");
+  src: url("../../fonts/helveticaneuemedium.eot?#iefix&v=1.0") format("embedded-opentype"),
+       url("../../fonts/helveticaneuemedium.woff2?v=1.0") format("woff2"),
+       url("../../fonts/helveticaneuemedium.woff?v=1.0") format("woff"),
+       url("../../fonts/helveticaneuemedium.ttf?v=1.0") format("truetype"),
+       url("../../fonts/helveticaneuemedium.svg?v=1.0#GDDigit13LED") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Georgia';
+  src: url('../../fonts/Georgia.eot');
+  src: url('../../fonts/Georgia.eot') format('embedded-opentype'),
+       url('../../fonts/Georgia.woff2') format('woff2'),
+       url('../../fonts/Georgia.woff') format('woff'),
+       url('../../fonts/Georgia.ttf') format('truetype'),
+       url('../../fonts/Georgia.svg#Georgia') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Quicksand:400,300,700);

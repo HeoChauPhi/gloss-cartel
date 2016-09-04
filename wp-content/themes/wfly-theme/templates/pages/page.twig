@@ -1,0 +1,21 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+  {% if post.title %}
+    <h1 id="page-title">
+      {{ post.title }}
+    </h1>
+  {% endif %}
+  
+  {% for post in posts %}
+    {% if not function('is_page') %}
+      <h3 class="post-title"><a href="{{ post.link }}">{{ post.title }}</a></h3>
+    {% endif %}
+    {{ post.content }}
+  {% endfor %}
+
+  {% if function('comments_open') %}
+  {% include 'comments.twig' %}
+  {{ function('comment_form') }}
+  {% endif %}
+{% endblock %}

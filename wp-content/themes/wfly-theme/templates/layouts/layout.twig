@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="{{site.charset}}" />
+    {% if function('is_home') %}
+      <title>{{site.name}} - {{site.description}}</title>
+    {% else %}
+      <title>{{ function('bloginfo') }} {{ function('wp_title') }}</title>
+    {% endif %}
+    <meta name="description" content="{{site.description}}">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
+    <link rel="shortcut icon" href="{{site_favicon}}" />
+    <link rel="pingback" href="{{site.pingback_url}}" />
+    {{function('wp_head')}}
+  </head>
+  <body class="{{body_class}}" data-template="base.twig">
+    <div class="page-wrapper">
+      {% block header %}
+        {% include 'header.twig' %}
+      {% endblock %}
+      
+      <div class="feature {% if block('block_feature') %}feature-slideshow{% endif %}">
+        <div class="container">
+          {% block navigation %}
+          {% include 'navigation.twig' %}
+          {% endblock %}
+          
+          {% block feature %}
+          {% endblock %}  
+        </div>
+      </div>
+
+      <main role="main" class="clearfix">
+        <div class="{% if function('is_page') %}{{ page_layout }} {% else %}container{% endif %}">
+          <div class="main-content {% if block('sidebar') %}has-sidebar{% endif %}">
+            {% block content %}
+              <div class="content-wrapper">
+                {{context}}
+              </div>
+            {% endblock %}
+          </div>
+
+          {% if block('sidebar') %}
+          <section class="sidebar-wrapper">
+            {% block aside %}
+            {% endblock %}
+          </section>
+          {% endif %}
+        </div>
+      </main>
+
+      {% block footer %}
+        {% include 'footer.twig' %}
+        {{ function('wp_footer') }}
+      {% endblock %}
+
+      {% block footer_scripts %}
+      <script src="https://maps.googleapis.com/maps/api/js"></script>
+      {% endblock %}
+    </div>
+  </body>
+</html>

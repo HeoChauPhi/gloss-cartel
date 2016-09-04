@@ -1,0 +1,62 @@
+/* Font face */
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+  $src: null;
+
+  $extmods: (
+    eot: '?',
+    svg: '#' + str-replace($name, ' ', '_')
+  );
+
+  $formats: (
+    otf: 'opentype',
+    ttf: 'truetype'
+  );
+
+  @each $ext in $exts {
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append($src, url('../' + quote($path + '.' + $extmod)) format(quote($format)), comma);
+  }
+
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+  }
+}
+
+@mixin arial {
+  font-family: Arial, 'Arial Unicode MS', Helvetica, Sans-Serif;
+}
+
+@mixin helveticaneue {
+  font-family: 'HelveticaNeue Medium', Helvetica, sans-serif;
+}
+
+@mixin georgia {
+  font-family: Georgia, 'Times New Roman', 'Bitstream Charter' !important;
+}
+
+@mixin quicksand {
+  font-family: 'Quicksand', sans-serif;
+}
+
+/* Breakpoint */
+@mixin breakpoint($point) {
+  @if $point == desktop {
+    @media (min-width: $tablet + 1px) { @content ; }
+  }
+  @else if $point == tablet { 
+    @media screen and (max-width: $tablet) and (min-width: $mobile + 1){ @content ; }
+  }
+  @else if $point == tablet_port {
+    @media screen and (max-width: $tablet-portrait) and (min-width: $mobile + 1)  { @content ; }
+  }
+  @else if $point == mobile {
+    @media (max-width: $mobile)  { @content ; }
+  }
+  @else if $point == minimobile {
+    @media (max-width: $minimobile)  { @content ; }
+  }
+}

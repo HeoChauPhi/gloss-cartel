@@ -1,0 +1,118 @@
+.footer {
+  background-color: $bg-footer;
+  color: $white;
+  padding: rem(0);
+
+  a {
+    color: $white;
+
+    &:hover {
+      color: darken($white, 2%);
+    }
+  }
+}
+
+.footer-panel {
+  font-size: rem(15px);
+  line-height: rem(25px);
+  padding-top: rem(45px);
+
+  .block-footer-panel {
+    margin-bottom: rem(30px);
+
+    @include breakpoint(desktop) {
+      float: left;
+      width: 33.333%;
+    }
+  }
+
+  .block-title {
+    color: $white;
+    font-size: rem(21px);
+    margin-bottom: rem(10px);
+    padding: 0;
+  }
+}
+
+.footer-bottom {
+  padding: rem(10px 0 30px);
+
+  .block-login {
+    text-align: center;
+
+    a {
+      font-size: 9px;
+    } 
+  }
+}
+
+.block-login {
+  .login-form {
+    display: none;
+  } 
+}
+
+.login-form {
+  h2 {
+    @include background-image(linear-gradient($gray-df, $gray-cd));
+    @include georgia;
+    @include text-shadow($white rem(1px 1px 0px));
+    font-weight: 400;
+    padding: rem(10px);
+    text-align: center;
+  }
+
+  .log_forms {
+    background-color: $gray-f9;
+    font-size: rem(12px);
+
+    form {
+      overflow: hidden;
+    }
+
+    .form-group {
+      padding: rem(10px);
+
+      label {
+        display: inline-block;
+        font-weight: 700;
+        margin-bottom: rem(5px);
+        min-width: rem(90px);
+      }
+
+      input[type*="text"],
+      input[type*="password"] {
+        background-color: $white;
+        border: rem(1px) solid $color-border;
+        padding: rem(4px 10px);
+      }
+
+      input[type*="submit"] {
+        @include background-image(linear-gradient(lighten($bg-button, 15%), $bg-button));
+        border-radius: rem(20px);
+        padding: rem(3px 11px);
+
+        &:hover {
+          @include background-image(linear-gradient($bg-button, lighten($bg-button, 15%)));
+        }
+      }
+
+      &.login {
+        float: right;
+      }
+
+      &:last-of-type {
+        float: right;
+        margin-top: rem(5px);
+      }
+    }
+
+    .user_username {
+      @include background-image(linear-gradient($gray-f9, $gray-f5));
+    }
+
+    .user_password {
+      @include background-image(linear-gradient($gray-f9, $gray-f5));
+    }
+  }
+} 

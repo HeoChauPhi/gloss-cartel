@@ -1,0 +1,69 @@
+*,
+*:after,
+*:before {
+  @include box-sizing(border-box);
+  margin: 0;
+  outline: none !important;
+  padding: 0;
+}
+
+html {
+  background-color: $white;
+  color: $black;
+  font-family: 'sans-serif';
+  font-size: $base-font-size;
+}
+
+body {
+  @include helveticaneue;
+  color: $color-text;
+  font-size: rem(16px);
+}
+
+a {
+  @include transition(all 0.2s ease-in-out);
+  color: $color-link;
+  text-decoration: none;
+
+  &:hover,
+  &:active {
+    color: draken($color-link, 3%);
+  }
+}
+
+p {
+  margin-bottom: rem(12px);
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+ul,
+ol {
+  margin-left: 1.2em;
+}
+
+input[type*='submit'] {
+  @extend %btn;
+}
+
+input[type*='text'],
+input[type*='email'],
+textarea {
+  border: rem(1px) solid $color-border;
+  padding: rem(4px 10px);
+  outline: none !important;
+
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: $color-link;
+  }
+}
+
+textarea {
+  max-width: 100%;
+  width: 100%;
+}

@@ -1,0 +1,8 @@
+<p>{{avatar_author()}}</p>
+{% if (author.first_name or author.first_name) is empty %}
+<p>{{author.user_nicename}}</p>
+{% else %}
+<p>{{author.last_name}}</p>
+<p>{{author.first_name}}</p>
+{% endif %}
+<p>{{author.user_email}}</p>

@@ -1,0 +1,34 @@
+#comment {
+  .comment {
+    @extend %clearfix;
+    margin-bottom: rem(20px);
+
+    .comment-author-picture {
+      float: left;
+      line-height: 0;
+      width: rem(96px);
+    }
+
+    .comment-content {
+      margin-left: rem(111px);
+    }
+
+    .comment-header,
+    .comment-comment {
+      margin-bottom: rem(12px);
+    }
+  }
+
+  .indented {
+    margin-left: rem(48px);
+  }
+}
+
+.comment-form {
+  [class*="comment-form-"] {
+    label {
+      display: inline-block;
+      min-width: rem(100px);
+    }
+  }
+}

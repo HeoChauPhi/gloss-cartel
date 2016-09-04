@@ -1,0 +1,27 @@
+.container {
+  max-width: 100%;
+  padding: 0 10%;
+
+  @include breakpoint(desktop) {
+    margin: 0 auto;
+    max-width: $container;
+    padding: rem(0 17px);
+  }
+}
+
+.main-content {
+  &.has-sidebar {
+    margin-bottom: rem(10px);
+
+    @include breakpoint(desktop) {
+      float: left;
+      padding-right: rem(15px);
+      width: 75%;
+    }
+
+  }
+}
+
+main {
+  padding-top: rem(10px);
+}

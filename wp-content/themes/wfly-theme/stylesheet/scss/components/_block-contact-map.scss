@@ -1,0 +1,24 @@
+.block-contact-map {
+  @extend %clearfix;
+  font-size: rem(14px);
+  line-height: rem(25px);
+  margin-bottom: rem(30px);
+}
+
+@include breakpoint(desktop) {
+  .contact-map--content {
+    float: left;
+    padding-right: rem(15px);
+    width: 32%;
+  }
+
+  .contact-map--map {
+    float: right;
+    padding-left: rem(15px);
+    width: 68%;
+
+    .acf-map {
+      margin: 0;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{% block content %}
+  {% for post in term.get_posts({'posts_per_page': count, 'paged': paged}) %}
+    <article>
+      <h3><a href="{{post.link}}">{{ post.title }}</a></h3>
+      {{ post.content }}
+      <ul class="cat-list">
+      {% for term in post.terms() %}
+        <li><a href="{{term.link}}">{{term.name}}</a></li>
+      {% endfor %}
+      </ul>
+    </article>
+  {% endfor %}
+  {% include 'pagination.twig' %}
+{% endblock %}

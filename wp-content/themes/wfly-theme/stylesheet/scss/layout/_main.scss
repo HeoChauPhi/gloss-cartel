@@ -1,0 +1,14 @@
+#page-title {
+  @extend %title;
+  font-size: rem(40px);
+  margin-bottom: rem(10px);
+}
+
+main {
+  padding-bottom: rem(20px);
+}
+
+.block-title {
+  @extend %title;
+  margin-bottom: rem(10px);
+}

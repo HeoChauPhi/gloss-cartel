@@ -1,0 +1,26 @@
+.single {
+  .category {
+    margin-bottom: rem(12px);
+
+    label {
+      display: inline;
+    }
+
+    .cat-list {
+      display: inline;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        display: inline;
+        list-style: none;
+        margin-right: rem(5px);
+      }
+    }
+  }
+
+  .post-related {
+    margin-bottom: rem(20px);
+  }
+}

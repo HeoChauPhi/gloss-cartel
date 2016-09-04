@@ -1,0 +1,57 @@
+{% if (function('is_user_logged_in')) %}
+<a href="{{book_link}}">Book Now!</a>
+{% else %}
+<form class="form-login" method="post" action="{{action}}">
+  <h3>Sign in</h3>
+  <div class="form-item">
+    <input type="email" name="login_email" class="login_email" placeholder="Email Address">
+  </div>
+  <div class="form-item">
+    <input type="password" name="login_password" class="login_password" placeholder="Password">
+  </div>
+
+  <div class="form-action">
+    <input class="btn btn-primary btn-lg btn-block" type="submit"  name="login_submit" value="Sign in" />
+  </div>  
+</form>
+
+<form class="form-create-account" method="post">
+  <h3>Create an Account</h3>
+  <div class="form-item">
+    <input type="text" value="" name="create[first_name]" class="first_name" placeholder="First Name">
+  </div>
+
+  <div class="form-item">
+    <input type="text" value="" name="create[last_name]" class="last_name" placeholder="Last Name">
+  </div>
+
+  <div class="form-item">
+    <input type="email" value="" name="create[email]" class="email" placeholder="Email Address">
+  </div>
+
+  <div class="form-item">
+    <input type="password" value="" name="create[pwd1]" class="pwd1" placeholder="Enter Password">
+  </div>
+
+  <div class="form-item">
+    <input type="password" value="" name="create[pwd2]" class="pwd2" placeholder="Confirm Password">
+  </div>
+
+  <div class="form-item">
+    <input type="text" value="" name="create[address]" class="address" placeholder="Address">
+  </div>
+
+  <div class="form-item">
+    <input type="text" value="" name="create[postcode]" class="postcode" placeholder="Post Code">
+  </div>
+
+  <div class="form-item">
+    <input type="text" value="" name="create[phone]" class="phone_number" placeholder="Phone Number">
+  </div>
+
+  <div class="form-action">
+    <button type="submit" name="btnregister" class="button" >Register</button>
+    <input type="hidden" name="task" value="register">
+  </div>
+</form>
+{% endif %}

@@ -1,0 +1,21 @@
+%title {
+  @include quicksand;
+  color: $color-text;
+  display: block;
+  font-size: rem(30px);
+  font-weight: 400;
+  margin-bottom: rem(10px);
+
+  a {
+    color: $color-link;
+  }
+}
+
+.post-detail-title,
+.comment-reply-title {
+  @extend %title;
+}
+
+.post-detail-title {
+  font-size: rem(42px);
+}

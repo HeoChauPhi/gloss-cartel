@@ -1,0 +1,52 @@
+{% block content %}
+  <h2 class="post-detail-title">{{ post.title }}</h2>
+  <p class="blog-author">
+    <span class="post-date">{{ post.post_date|date}}</span> | <a class="post-author" href="{{post.author.path}}"> {{ post.author.name }} </a> 
+  </p>
+  
+  {% if post.thumbnail.src %}
+  <div class="post-picture">
+    <img src="{{post.thumbnail.src}}" class="feature" />
+  </div>
+  {% endif %}
+
+  {% if post.terms('category') %}
+  <div class="category">
+    <label>Category:</label>
+    <ul class="cat-list">
+    {% for term in post.terms('category') %}
+      <li><a href="{{term.link}}">{{term.name}}{% if (loop.length > 1) and (loop.length != loop.last) %},{% endif %}</a></li>
+    {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+  
+  <div class="post-content">
+    {{ post.content }}  
+  </div>
+
+  {% if post.terms('tags') %}
+  <div class="tags">
+    <label>Tags:</label>
+    <ul class="tag-list">
+    {% for term in post.terms('tags') %}
+      <li><a href="{{term.link}}">{{term.name}}</a></li>
+    {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+
+  {% if related('category') %}
+    <h3 class="related-title block-title">Related post</h3>
+    <ul class="post-related">
+      {% for post in related('category') %}
+        <li><a href="{{post.link}}">{{post.title}}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% if function('comments_open') %}
+  {% include 'comments.twig' %}
+  {{ function('comment_form') }}
+  {% endif %}
+{% endblock %}

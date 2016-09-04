@@ -1,0 +1,7 @@
+.sidebar-right {
+  @include breakpoint(desktop) {
+    float: right;
+    padding-left: rem(15px);
+    width: 25%;
+  }
+}

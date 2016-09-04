@@ -1,0 +1,19 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+  {% if title is defined %}
+    <h2 id="page-title">{{title}}</h2>
+  {% endif %}
+  {% for post in term.get_posts({'posts_per_page': count, 'paged': paged}) %}
+    {% if function('is_tag') %}
+      {% include ['tags.twig', 'archive-tease.twig'] %}
+    {% elseif function('is_category') %}
+      {% include ['category.twig', 'archive-tease.twig'] %}
+    {% elseif function('is_post_type_archive') %}
+      {% include ["archive-"~post.post_type~".twig", 'archive-tease.twig'] %}
+    {% else %}
+      {% include 'archive-tease.twig' %}
+    {% endif %}
+  {% endfor %}
+  {% include 'pagination.twig' %}
+{% endblock %}

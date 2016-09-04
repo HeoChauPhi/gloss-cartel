@@ -1,0 +1,34 @@
+{% if post.comments %}
+  <div id="comment">
+    <h3 class="block-title comment-title">Comment{% if post.comment_count > 1 %}s{% endif %}:</h3>
+    {% for comment in post.comments %}
+      <div class="comment comment-{{comment.ID}} comment-order-{{loop.index}}">
+        <div class="comment-author-picture"><img src="{{comment.author.avatar}}" ></div>
+        <div class="comment-content">
+          <div class="comment-header">
+          <span class="comment-date">{{comment.date}}</span> | <a class="comment-author" href="{{ site.url }}/author/{{comment.author.name}}">{{comment.author.name}}</a>
+          </div>
+          <div class="comment-comment">{{comment.content}}</div>
+          <div class="comment-link-reply">{{comment.reply_link}}</div>
+        </div>
+      </div>
+      
+      {% if comment.children is not empty %}
+        <div class="indented">
+          {% for subcomment in comment.children %}
+            <div class="comment comment-{{subcomment.ID}} comment-order-{{loop.index}}">
+              <div class="comment-author-picture"><img src="{{comment.author.avatar}}" ></div>
+              <div class="comment-content">
+                <div class="comment-header">
+                  <span class="comment-date">{{comment.date}}</span> | <a class="comment-author" href="{{ site.url }}/author/{{subcomment.author.name}}">{{subcomment.author.name}}</a>
+                </div>
+                <div class="comment-comment">{{subcomment.content}}</div>  
+                <div class="comment-link-reply">{{subcomment.reply_link}}</div>  
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endif %}

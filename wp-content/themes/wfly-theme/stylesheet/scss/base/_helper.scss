@@ -1,0 +1,18 @@
+%hidden,
+.hidden {
+  height: 0;
+  text-indent: rem(-99999px);
+  visibility: hidden;
+}
+
+%clearfix,
+.clearfix {
+  &:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+  }
+}

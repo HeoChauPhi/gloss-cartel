@@ -1,0 +1,20 @@
+{% block header %}
+  <header id="header" class="header">
+    <div class="container">
+      <div class="branding">
+        <div class="site-image">
+          {% if function('has_custom_logo') %}
+            {{function('the_custom_logo')}}
+          {% else %}
+            <a href="{{ site.url }}">
+              <img alt="{{ site.name }}" class="site-logo" src="{{ site_logo }}">
+            </a>
+          {% endif %}
+        </div>
+        <p class="site-title hidden">
+          <a href="{{ site.url }}" rel="home">{{ site.name }}</a>
+        </p>
+      </div>
+    </div>
+  </header>
+{% endblock %}

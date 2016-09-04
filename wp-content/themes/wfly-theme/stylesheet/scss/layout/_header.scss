@@ -1,0 +1,139 @@
+.site-image {
+  text-align: center;
+}
+
+.feature {
+  @include background-image(radial-gradient(circle, darken($bg-feature, 5%), $bg-feature));
+  color: $white;
+  padding: rem(20px 0);
+  margin-bottom: rem(60px);
+}
+
+.feature-slideshow {
+  @include breakpoint(desktop) {
+    margin-bottom: rem(85px);
+  }
+}
+
+.menu-icon {
+  cursor: pointer;
+  font-size: rem(20px);
+  padding: rem(10px 0);
+  text-align: center;
+
+  .fa {
+    font-weight: 700;
+    font-size: rem(20px);
+    margin-right: rem(10px);
+  }
+
+  @include breakpoint(desktop) {
+    display: none !important;
+  }
+}
+
+.main-nav {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  
+  li {
+    list-style: none;
+    position: relative;
+
+    a {
+      color: $white;
+      display: block;
+      padding: rem(8px 15px);
+
+      &:hover {
+        background-color: lighten($color-link, 2%);
+      }
+    }
+
+    &.current-menu-item {
+      > a {
+        background-color: lighten($color-link, 5%);
+      }
+    }
+
+    ul.nav-drop {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        a {
+          &:before {
+            content: "\f101";
+            font-family: FontAwesome;
+            font-size: rem(14px);
+            margin-right: rem(5px);
+          }
+        }
+      }
+    }
+  }
+
+  @include breakpoint(desktop) {
+    display: block !important;
+    margin-bottom: rem(15px);
+    text-align: center;
+
+    > li {
+      display: inline-block;
+
+      > a {
+        padding: rem(12px 18px);
+      }
+
+      &.menu-item-has-children {
+        > ul.nav-drop {
+          top: 80%;
+        }
+
+        &:hover {
+          > ul.nav-drop {
+            display: block;
+            opacity: 1;
+            top: 100%;
+            visibility: visible;
+          }
+        }
+      }
+    }
+
+    li {
+      &:hover {
+        > a {
+          background-color: lighten($color-link, 5%);
+        }
+      }
+    }
+
+    ul.nav-drop {
+      @include transition(all 0.3s ease);
+      background-color: $bg-feature;
+      left: 0;
+      opacity: 0;
+      position: absolute;
+      text-align: left;
+      top: 0;
+      visibility: hidden;
+      width: rem(200px);
+      z-index: 9999;
+
+      li {
+        a {
+          padding: rem(15px);
+
+          &:before {
+            content: "";
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

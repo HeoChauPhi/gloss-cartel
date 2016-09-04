@@ -1,0 +1,14 @@
+%btn,
+.btn {
+  @include border-radius(rem(3px));
+  @include text-shadow(rem(1px 1px 1px) $black);
+  background-color: $bg-button;
+  border: rem(1px) solid $bd-button;
+  color: $white;
+  cursor: pointer;
+  padding: rem(7px 12px);
+
+  &:hover {
+    background-color: darken($bg-button, 5%);
+  }
+}

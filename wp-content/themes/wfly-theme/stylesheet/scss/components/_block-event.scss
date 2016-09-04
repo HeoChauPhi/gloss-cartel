@@ -1,0 +1,155 @@
+.block-event--wrapper {
+  border-bottom: rem(1px) solid $color-border;
+  margin-bottom: rem(47px);
+  padding-bottom: rem(10px);
+}
+
+.block-event {
+  @extend %clearfix;
+
+  .block-title {
+    font-size: rem(30px);
+    margin-bottom: rem(20px);
+  }
+}
+
+.block-event-description {
+  margin-bottom: rem(20px);
+
+  @include breakpoint(desktop) {
+    float: left;
+    padding-right: rem(15px);
+    width: 68%;
+  }
+
+  .event-description--content {
+    font-size: rem(18px);
+    line-height: rem(30px);
+  }
+}
+
+.block-evetn--list {
+  @include breakpoint(desktop) {
+    float: right;
+    padding-left: rem(15px);
+    width: 32%;
+  }
+
+  .evens--item {
+    @extend %clearfix;
+    margin-bottom: rem(30px);
+  }
+
+  .event--date-month {
+    float: left;
+    width: rem(80px);
+
+    .date,
+    .month {
+      border: rem(1px) solid $color-border;
+      display: block;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .month {
+      @include border-radius(rem(3px 3px 0 0));
+      @include text-shadow($color-text rem(1px 1px 1px));
+      background-color: $color-link;
+      border-bottom: none;
+      border-color: darken($color-link, 15%);
+      color: $white;
+      padding: rem(5px);
+    }
+
+
+    .date {
+      @include border-radius(rem(0 0 3px 3px));
+      border-top: none;
+      font-size: rem(27px);
+      padding: rem(5px);
+    }
+  }
+
+  .event--content {
+    margin-left: rem(100px);
+
+    .event-title {
+      @extend %title;
+      font-size: rem(20px);
+      margin-bottom: rem(15px);
+    }
+
+    .event-description {
+      font-size: rem(14px);
+    }
+  }
+}
+
+.block-sidebar.block-event {
+  > .block-content {
+    @extend .block-evetn--list;
+    float: none;
+    padding: 0;
+    width: auto;
+
+    .event-title {
+      font-size: rem(15px) !important;
+      word-wrap: break-word;
+    }
+
+    .event-description {
+      display: none;
+    }
+  }
+
+  .slick-slider {
+    .slick-arrow {
+      @include border-radius(rem(500px));
+      background-color: transparent;
+      border: rem(1px) solid $color-border;
+      bottom: 100%;
+      cursor: pointer;
+      height: rem(30px);
+      margin-bottom: rem(20px);
+      position: absolute;;
+      right: 0;
+      text-align: center;
+      text-indent: rem(-999999px);
+      width: rem(30px);
+
+      &:before {
+        float: left;
+        font-family: 'FontAwesome';
+        font-size: rem(20px);
+        height: 100%;
+        line-height: rem(27px);
+        text-align: center;
+        text-indent: 0;
+        width: 100%;
+      }
+
+      &:hover {
+        border-color: $color-link;
+
+        &:before {
+          color: $color-link;
+        }
+      }
+
+      &.slick-prev {
+        right: rem(40px);
+
+        &:before {
+          content: "\f104";
+        }
+      }
+
+      &.slick-next {
+        &:before {
+          content: "\f105";
+        }
+      }
+    }
+  }
+}
