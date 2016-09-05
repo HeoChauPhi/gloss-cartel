@@ -1,10 +1,10 @@
 <?php
 function customform_metaboxes( $meta_boxes ) {
   $prefix = '_cmb_'; // Prefix for all fields
-  $meta_boxes['page_option'] = array(
+  $meta_boxes['cf_option'] = array(
     'id' => 'custom_fields',
     'title' => 'Custom Fields',
-    'pages' => array('postcode'), // post type
+    'pages' =>  array('postcode'), // post type
     'context' => 'normal',
     'priority' => 'high',
     'show_names' => true, // Show field names on the left
