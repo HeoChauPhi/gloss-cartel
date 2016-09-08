@@ -20,13 +20,13 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'demowp_gloss-cortel');
+define('DB_NAME', 'demowp_gloss-cartel');
 
 /** MySQL database username */
 define('DB_USER', 'root');
 
 /** MySQL database password */
-define('DB_PASSWORD', '');
+define('DB_PASSWORD', '1');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
@@ -54,6 +54,8 @@ define('AUTH_SALT',        '832>iU.*+J%o(,;NTv;op!Uy)&lH#c@u}N}>Q50!_SESBt=8d4?2
 define('SECURE_AUTH_SALT', ' +p&oXaS$sU5{V^C$tfP3JC(6gBn7Rb`gJbyM2y%i_x#5dvi~Tb5wiE1ZMYcEzyr');
 define('LOGGED_IN_SALT',   '>BE~9V>>bii.?M=@TMV-,Q,7_/B321PLCo|tzQ17rZ%UU0NYNn0>PH&h)1n^P:gL');
 define('NONCE_SALT',       '4.H3!<VIAl7`[)uqxNC6B?/H,]|N<y&v%Q{5;2V1iRC94%oyqMMP#CE|,//Lw*I#');
+define("WP_HOME", "http://localhost/demowp/gloss-cartel");
+define("WP_SITEURL", "http://localhost/demowp/gloss-cartel");
 
 /**#@-*/
 
@@ -78,6 +80,7 @@ $table_prefix  = 'wp_';
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
 define('WP_DEBUG', false);
+define('FS_METHOD', 'direct');
 
 /* That's all, stop editing! Happy blogging. */
 
