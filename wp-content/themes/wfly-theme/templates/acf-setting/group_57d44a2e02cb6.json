@@ -1,0 +1,192 @@
+[
+    {
+        "key": "group_57d44a2e02cb6",
+        "title": "Group Footer Block",
+        "fields": [
+            {
+                "key": "field_57d4685ee314a",
+                "label": "Group Footer Block",
+                "name": "group_footer_block",
+                "type": "flexible_content",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "button_label": "Add Row",
+                "min": "",
+                "max": "",
+                "layouts": [
+                    {
+                        "key": "57d4686360159",
+                        "name": "footer_button_link",
+                        "label": "Footer Button Link",
+                        "display": "row",
+                        "sub_fields": [
+                            {
+                                "key": "field_57d469f605c9f",
+                                "label": "Footer Button Link Text",
+                                "name": "footer_button_link_text",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": ""
+                            },
+                            {
+                                "key": "field_57d46897e314b",
+                                "label": "Footer Button Link URL",
+                                "name": "footer_button_link_url",
+                                "type": "url",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": ""
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    {
+                        "key": "57d4691ee314c",
+                        "name": "footer_text",
+                        "label": "Footer Text",
+                        "display": "row",
+                        "sub_fields": [
+                            {
+                                "key": "field_57d4691ee314d",
+                                "label": "Block Footer Text",
+                                "name": "block_footer_text",
+                                "type": "textarea",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "",
+                                "maxlength": "",
+                                "rows": "",
+                                "new_lines": "wpautop"
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
+                    {
+                        "key": "57d46977e314e",
+                        "name": "footer_social",
+                        "label": "Footer Social",
+                        "display": "row",
+                        "sub_fields": [
+                            {
+                                "key": "field_57d46977e314f",
+                                "label": "Block Footer Social",
+                                "name": "block_footer_social",
+                                "type": "flexible_content",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "button_label": "Add Row",
+                                "min": "",
+                                "max": "",
+                                "layouts": [
+                                    {
+                                        "key": "57d4698d01868",
+                                        "name": "social_item",
+                                        "label": "Social Item",
+                                        "display": "row",
+                                        "sub_fields": [
+                                            {
+                                                "key": "field_57d4699ee3150",
+                                                "label": "Social Name",
+                                                "name": "social_name",
+                                                "type": "text",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "placeholder": "",
+                                                "prepend": "",
+                                                "append": "",
+                                                "maxlength": ""
+                                            },
+                                            {
+                                                "key": "field_57d469b4e3151",
+                                                "label": "Social URL",
+                                                "name": "social_url",
+                                                "type": "url",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "placeholder": ""
+                                            }
+                                        ],
+                                        "min": "",
+                                        "max": ""
+                                    }
+                                ]
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "widget",
+                    "operator": "==",
+                    "value": "footer_widget"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    }
+]

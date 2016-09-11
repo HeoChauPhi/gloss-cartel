@@ -1,0 +1,3 @@
+{% for item in menu.get_items %}
+  {% include 'menu-item.twig' with {'item': item} %}
+{% endfor %}

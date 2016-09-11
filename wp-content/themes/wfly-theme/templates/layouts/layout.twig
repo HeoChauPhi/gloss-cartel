@@ -20,17 +20,6 @@
       {% block header %}
         {% include 'header.twig' %}
       {% endblock %}
-      
-      <div class="feature {% if block('block_feature') %}feature-slideshow{% endif %}">
-        <div class="container">
-          {% block navigation %}
-          {% include 'navigation.twig' %}
-          {% endblock %}
-          
-          {% block feature %}
-          {% endblock %}  
-        </div>
-      </div>
 
       <main role="main" class="clearfix">
         <div class="{% if function('is_page') %}{{ page_layout }} {% else %}container{% endif %}">
@@ -57,7 +46,7 @@
       {% endblock %}
 
       {% block footer_scripts %}
-      <script src="https://maps.googleapis.com/maps/api/js"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCZTYCWbVTt_x0BNM2LSt3XzeomIkUPNaQ"></script>
       {% endblock %}
     </div>
   </body>

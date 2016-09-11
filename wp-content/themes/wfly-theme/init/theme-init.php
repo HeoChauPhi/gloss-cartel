@@ -13,7 +13,7 @@ if ( ! class_exists( 'Timber' ) ) {
 }
 
 // Get custom function template with Timber
-Timber::$dirname = array('templates', 'templates/pages', 'templates/layouts', 'templates/views');
+Timber::$dirname = array('templates', 'templates/acf-setting', 'templates/pages', 'templates/layouts', 'templates/views');
 
 // Disable Related post
 function related($custom_cat, $showpost = -1) {
@@ -166,7 +166,8 @@ function wf_twig_data($data){
 
   $data['site_logo'] = new TimberImage($logo);
   $data['site_favicon'] = new TimberImage($favicon);
-  $data['menu'] = new TimberMenu();
+  $data['menu']['main'] = new TimberMenu('main');
+  $data['menu']['footer'] = new TimberMenu('footer');
 
   $data['related'] = TimberHelper::function_wrapper( 'related' );
   $data['sidebar'] = TimberHelper::function_wrapper( 'sidebar' );

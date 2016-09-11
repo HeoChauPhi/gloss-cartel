@@ -1,60 +1,37 @@
 {% block footer %}
-  <footer id="footer" class="footer">
-  {% if acfwidget('support_online', 'footer_widget-2') %}
-    <div class="block-support-online">
-      <div class="container">
-        {% for item in acfwidget('support_online', 'footer_widget-2') %}
-          <a target="_blank" href="tel://{{ item.support_phone_link }}">{{ item.support_text }}</a>
-        {% endfor %}
-      </div>
-    </div>
-  {% endif %}
-  {% if acfwidget('footer_panel', 'footer_widget-2') %}
-    <div class="footer-panel">
-      <div class="container clearfix">
-        {% for item in acfwidget('footer_panel', 'footer_widget-2') %}
-          {% if item.footer_panel_1_title and item.site_map %}
-            <div class="block-footer-panel footer_panel_1">
-              <h2 class="footer-panel-title block-title">{{ item.footer_panel_1_title }}</h2>
-              <div class="block-content">
-                {{ shortcode(item.site_map) }}
+  <footer id="footer" class="footer footer-wrapper">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-item">
+          {% include 'footer-menu.twig' %}
+          {% for item in acfwidget('group_footer_block', 'footer_widget-2') %}
+            {% if item.acf_fc_layout == "footer_button_link" %}
+              <div class="buttom-footer">
+                <a href="{{item.footer_button_link_url}}" class="btn btn_yello">{{item.footer_button_link_text}}</a>
               </div>
-            </div>
-          {% endif %}
-          
-          {% if item.footer_panel_2_title and item.footer_contact %}
-            <div class="block-footer-panel footer_panel_2">
-              <h2 class="footer-panel-title block-title">{{ item.footer_panel_2_title }}</h2>
-              <div class="block-content">
-                {{ item.footer_contact }}
-              </div>
-            </div>
-          {% endif %}
+            {% endif %}
+          {% endfor %}
+        </div>
 
-          {% if item.footer_panel_3_title and item.footer_social %}
-            <div class="block-footer-panel footer_panel_3">
-              <h2 class="footer-panel-title block-title">{{ item.footer_panel_3_title }}</h2>
-              <div class="block-content">
-                {{ shortcode(item.footer_social) }}
+        <div class="footer-item">
+          {% for item in acfwidget('group_footer_block', 'footer_widget-2') %}
+            {% if item.acf_fc_layout == "footer_text" %}
+              <div class="block-copyright">
+                <div class="copyright-content">{{item.block_footer_text}}</div>
               </div>
-            </div>
-          {% endif %}
-
-        {% endfor %}
-      </div>
-    </div>
-  {% endif %}
-    <div class="footer-bottom">
-      <div class="container">
-        <div class="block-login">
-          {% if function('is_user_logged_in') %}
-          <a href="{{ function('wp_logout_url') }}">Logout</a>
-          {% else %}
-          <a class="popup-login" href="#login-form">Login</a>
-          <div id="login-form" class="login-form">
-            {{ shortcode('[login_widget title="Login"]') }}
-          </div>
-          {% endif %}  
+            {% endif %}
+            {% if item.acf_fc_layout == "footer_social" %}
+              <div class="box-social">
+                <div class="box-social__list">
+                  {% for items in item.block_footer_social %}
+                    <div class="box-social__item">
+                      <a href="{{items.social_url}}"><span class="icon-{{items.social_name|lower}}"></span>{{items.social_name}}</a>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
         </div>
       </div>
     </div>

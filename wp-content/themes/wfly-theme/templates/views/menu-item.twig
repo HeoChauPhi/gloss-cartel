@@ -1,0 +1,6 @@
+<li class="nav-main-item {{item.classes | join(' ')}}">
+  <a class="nav-main-link" href="{{item.get_link}}">{{item.title}}</a>
+  {% if item.get_children %}
+    {% include 'sub-menu.twig' with {'child': item.get_children} %}
+  {% endif %}
+</li>

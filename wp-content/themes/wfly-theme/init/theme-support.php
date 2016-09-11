@@ -1,13 +1,17 @@
 <?php
 /*
 **
-** Enable Function 
+** Enable Function
 **
 */
 
 // menu
+add_theme_support( 'menus' );
 function wf_menu() {
-  register_nav_menus();
+  register_nav_menus(array (
+    'main' => 'Main Menu',
+    'footer' => 'Footer Menu'
+  ));
 }
 add_action('init', 'wf_menu');
 
@@ -23,12 +27,12 @@ add_action( 'after_setup_theme', 'wf_setup' );
 add_theme_support( 'post-thumbnails' );
 
 // Unset URL from comment form
-function wf_move_comment_form_below( $fields ) { 
-    $comment_field = $fields['comment']; 
-    unset( $fields['comment'] ); 
+function wf_move_comment_form_below( $fields ) {
+    $comment_field = $fields['comment'];
+    unset( $fields['comment'] );
     $fields['comment'] = $comment_field;
-    return $fields; 
-} 
+    return $fields;
+}
 add_filter( 'comment_form_fields', 'wf_move_comment_form_below' );
 
 // Set per page on each page
@@ -46,7 +50,7 @@ function set_posts_per_page( $query ) {
 
 
 /*
-** 
+**
 ** Support Widget Layout
 **
 */
@@ -216,5 +220,17 @@ class footer_Widget extends WP_Widget {
   }
 }
 
+add_filter('acf/settings/save_json', 'wf_acf_json_save_point');
+function wf_acf_json_save_point( $path ) {
+  $path = get_stylesheet_directory() . '/templates/acf-setting';
+  return $path;
+}
+
+add_filter('acf/settings/load_json', 'wf_acf_json_load_point');
+function wf_acf_json_load_point( $paths ) {
+  unset($paths[0]);
+  $paths[] = get_stylesheet_directory() . '/templates/acf-setting';
+  return $paths;
+}
 
 ?>
