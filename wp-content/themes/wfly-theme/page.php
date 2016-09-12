@@ -22,6 +22,7 @@
  */
 
 $context = Timber::get_context();
+$context['title_option'] = framework_page('title');
 $context['page_layout'] = framework_page('layout_page');
 $post = new TimberPost();
 $context['post'] = $post;

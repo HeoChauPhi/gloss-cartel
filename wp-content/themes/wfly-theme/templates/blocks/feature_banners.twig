@@ -1,0 +1,12 @@
+{% for post in feature_banner %}
+<div class="box-feature">
+  {% for item in post.get_field('slidehsow_items') %}
+  <div class="box-feature__iamge">
+    <img src="{{ item.slideshow_image }}">
+  </div>
+  <div class="box-feature__heightline">
+    {{item.slideshow_heightline}}
+  </div>
+  {% endfor %}
+</div>
+{% endfor %}

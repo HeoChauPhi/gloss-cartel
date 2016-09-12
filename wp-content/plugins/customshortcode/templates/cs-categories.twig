@@ -1,0 +1,5 @@
+<ul class="cs-cat--list">
+  {% for item in categories %}
+    {% include 'cat-item.twig' with {'item': item} only %}
+  {% endfor %}
+</ul>

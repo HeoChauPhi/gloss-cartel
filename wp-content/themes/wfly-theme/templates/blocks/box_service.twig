@@ -1,0 +1,15 @@
+<div class="box-service">
+  <div class="container">
+    <h2 class="box-service__title">{{service_title}}</h2>
+    <ul class="box-service_list">
+      {% for item in service_list %}
+        <li class="box-service__item">
+        <div class="box-service__item__image">
+          <img src="{{item.service_item_image}}">
+        </div>
+        <h3 class="box-service__item__title">{{item.service_item_title}}</h3>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

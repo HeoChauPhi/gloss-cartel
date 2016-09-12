@@ -13,7 +13,7 @@ if ( ! class_exists( 'Timber' ) ) {
 }
 
 // Get custom function template with Timber
-Timber::$dirname = array('templates', 'templates/acf-setting', 'templates/pages', 'templates/layouts', 'templates/views');
+Timber::$dirname = array('templates', 'templates/acf-setting', 'templates/blocks', 'templates/pages', 'templates/layouts', 'templates/views');
 
 // Disable Related post
 function related($custom_cat, $showpost = -1) {
@@ -157,6 +157,59 @@ function avatar_author($size = '') {
   return $avatar;
 }
 
+// Flexible content field
+function flexible_content($name) {
+  $fc_type = array();
+
+  global $post;
+  $fc = get_field( $name, $post->ID );
+  $fc_ob = get_field_object( $name, $post->ID );
+
+  if ( !empty( $fc ) ) {
+    foreach ($fc as $field) {
+      $layout = $field['acf_fc_layout'];
+      $fc_type[$layout] = array();
+
+      switch ($layout) {
+        case 'feature_banners':
+          $ob_postid = $field['feature_banner']->ID;
+          $posts = Timber::get_posts($ob_postid);
+          $field['feature_banner'] = $posts;
+          break;
+      }
+
+      //print_r($field);
+      try {
+        Timber::render($layout . '.twig', $field);
+      } catch (Exception $e) {
+        echo 'Could not find a twig file for layout type: ' . $layout;
+      }
+    }
+  }
+
+  /*if (!empty($fc_ob)) {
+    $layout_ob = $fc_ob['layouts'];
+    foreach ($layout_ob as $field_ob) {
+      //print_r($field_ob);
+
+      $fc_name = $field_ob['name'];
+      $fc_type[$field_ob['name']] = $field_ob['sub_fields'];
+
+    }
+  }
+
+  foreach ($fc_type as $fc_fields) {
+    //print_r($fc_fields);
+
+    foreach ($fc_fields as $fc_field) {
+      //echo $fc_field['name'] . '<br>';
+      $ob_type = $fc_field['name'];
+    }
+  }*/
+
+  return;
+}
+
 // Add Timber value
 add_filter('timber_context', 'wf_twig_data');
 function wf_twig_data($data){
@@ -169,6 +222,7 @@ function wf_twig_data($data){
   $data['menu']['main'] = new TimberMenu('main');
   $data['menu']['footer'] = new TimberMenu('footer');
 
+  $data['flexible_content'] = TimberHelper::function_wrapper( 'flexible_content' );
   $data['related'] = TimberHelper::function_wrapper( 'related' );
   $data['sidebar'] = TimberHelper::function_wrapper( 'sidebar' );
   $data['shortcode'] = TimberHelper::function_wrapper( 'shortcode' );

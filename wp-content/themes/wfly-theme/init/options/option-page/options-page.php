@@ -10,6 +10,16 @@ function be_sample_metaboxes( $meta_boxes ) {
     'show_names' => true, // Show field names on the left
     'fields' => array(
       array(
+        'name' => 'Disable title',
+        'desc' => 'Check this disable this page title',
+        'id' => $prefix . 'title',
+        'type'    => 'checkbox',
+        'options' => array(
+          'hide'       => __( 'Hide this page title', 'cmb' ),
+        ),
+      ),
+
+      array(
         'name' => 'Layout page option',
         'desc' => 'Check to set this page layout',
         'id' => $prefix . 'layout_page',

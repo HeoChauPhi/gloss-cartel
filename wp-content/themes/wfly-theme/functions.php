@@ -57,21 +57,52 @@ function wf_admin_styles() {
 add_action('admin_init', 'wf_admin_styles');
 
 /* Add custom post type */
-/*function create_my_post_types() {
-  register_post_type( 'postcode',
+function wf_create_custom_post_types() {
+  register_post_type( 'wf_product',
     array(
       'labels' => array(
-        'name' => __( 'Post Code' ),
-        'singular_name' => __( 'Post Code' )
+        'name' => __( 'Product' ),
+        'singular_name' => __( 'Product' )
       ),
       'supports' => array(
-        'title',
-        'editor',
+        'title'
+      ),
+      'public' => true,
+      'has_archive' => true,
+    )
+  );
+  register_post_type( 'slideshow',
+    array(
+      'labels' => array(
+        'name' => __( 'Slideshow' ),
+        'singular_name' => __( 'Slideshow' )
+      ),
+      'supports' => array(
+        'title'
       ),
       'public' => true,
       'has_archive' => true,
     )
   );
 }
-add_action( 'init', 'create_my_post_types' );*/
+add_action( 'init', 'wf_create_custom_post_types' );
+
+function wf_create_custom_taxonomy() {
+  $labels_product = array(
+    'name' => 'Service',
+    'singular' => 'Service',
+    'menu_name' => 'Service'
+  );
+  $args_product = array(
+    'labels'                     => $labels_product,
+    'hierarchical'               => true,
+    'public'                     => true,
+    'show_ui'                    => true,
+    'show_admin_column'          => true,
+    'show_in_nav_menus'          => true,
+    'show_tagcloud'              => true,
+  );
+  register_taxonomy('service_product', 'wf_product', $args_product);
+}
+add_action( 'init', 'wf_create_custom_taxonomy', 0 );
 ?>

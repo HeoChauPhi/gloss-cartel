@@ -1,0 +1,7 @@
+<div class="box-product-sale">
+  <div class="box-product-sale__list">
+    {% for item in categories %}
+      {% include 'cat-itemservice.twig' with {'item': item} only %}
+    {% endfor %}
+  </div>
+</div>
