@@ -1,13 +1,30 @@
 <div class="box-product-sale_item">
   <div class="box-product-sale__image">
-    <img src="{{item.service_product_image}}">
+    <a href="{{item.link}}"><img src="{{item.service_product_image}}"></a>
   </div>
   <div class="box-product-sale__content">
-  <h2 class="box-product-sale__title">{{item.name}}</h2>
-  <div class="box-product-sale__description"></div>
+  <h2 class="box-product-sale__title"><a href="{{item.link}}">{{item.name}}</a></h2>
+  <div class="box-product-sale__description">{{item.description}}</div>
   <div class="box-product-sale__from">
     <div class="text">from</div>
     <div class="number">{{item.service_product_about_sale}}</div>
   </div>
   </div>
 </div>
+{% if item.children %}
+  {% for child in item.children %}
+    <div class="box-product-sale_item">
+      <div class="box-product-sale__image">
+        <a href="{{item.link}}"><img src="{{child.service_product_image}}"></a>
+      </div>
+      <div class="box-product-sale__content">
+      <h2 class="box-product-sale__title"><a href="{{child.link}}">{{child.name}}</a></h2>
+      <div class="box-product-sale__description">{{child.description}}</div>
+      <div class="box-product-sale__from">
+        <div class="text">from</div>
+        <div class="number">{{child.service_product_about_sale}}</div>
+      </div>
+      </div>
+    </div>
+  {% endfor %}
+{% endif %}

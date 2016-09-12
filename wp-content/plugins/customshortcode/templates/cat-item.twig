@@ -1,1 +1,8 @@
 <li class="cs-cat--item">{{item.name}}</li>
+{% if item.children %}
+  <ul class="cat-child">
+    {% for child in item.children %}
+      <li class="cs-cat--item">{{child.name}}</li>
+    {% endfor %}
+  </ul>
+{% endif %}

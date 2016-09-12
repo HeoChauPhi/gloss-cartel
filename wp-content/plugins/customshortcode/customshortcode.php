@@ -46,8 +46,13 @@ function cs_create_get_tax($attrs) {
   ), $attrs));
 
   ob_start();
+    $args = array(
+      'parent' => 0,
+      'hide_empty' => false
+    );
+
     $context = Timber::get_context();
-    $context['categories'] = Timber::get_terms($tax_name);
+    $context['categories'] = Timber::get_terms($tax_name, $args);
     Timber::render( array( 'cat-' . $tax_name . '.twig', 'cs-categories.twig'), $context );
 
     $content = ob_get_contents();
