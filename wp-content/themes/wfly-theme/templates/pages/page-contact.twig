@@ -8,13 +8,15 @@
     </div>
   {% endif %}
 
-  {% for post in posts %}
-    {% if not function('is_page') %}
-      <h3 class="post-title"><a href="{{ post.link }}">{{ post.title }}</a></h3>
-    {% endif %}
-    {{ post.content }}
-    {{ flexible_content('add_components_block') }}
-  {% endfor %}
+  <div class="main-page-content">
+    {% for post in posts %}
+      {% if not function('is_page') %}
+        <h3 class="post-title"><a href="{{ post.link }}">{{ post.title }}</a></h3>
+      {% endif %}
+      {{ post.content }}
+      {{ flexible_content('add_components_block') }}
+    {% endfor %}
+  </div>
 
   {% if function('comments_open') %}
   {% include 'comments.twig' %}

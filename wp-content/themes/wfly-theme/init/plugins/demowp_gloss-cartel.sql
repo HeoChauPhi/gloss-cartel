@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 13, 2016 at 03:56 PM
+-- Generation Time: Sep 13, 2016 at 04:15 PM
 -- Server version: 5.6.31-0ubuntu0.15.10.1
 -- PHP Version: 5.6.11-1ubuntu3.4
 
@@ -325,7 +325,7 @@ CREATE TABLE IF NOT EXISTS `wp_postmeta` (
   `post_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `meta_value` longtext COLLATE utf8mb4_unicode_ci
-) ENGINE=InnoDB AUTO_INCREMENT=995 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1004 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `wp_postmeta`
@@ -384,14 +384,6 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (235, 70, '_menu_item_classes', 'a:1:{i:0;s:0:"";}'),
 (236, 70, '_menu_item_xfn', ''),
 (237, 70, '_menu_item_url', '/'),
-(239, 72, '_menu_item_type', 'custom'),
-(240, 72, '_menu_item_menu_item_parent', '0'),
-(241, 72, '_menu_item_object_id', '72'),
-(242, 72, '_menu_item_object', 'custom'),
-(243, 72, '_menu_item_target', ''),
-(244, 72, '_menu_item_classes', 'a:1:{i:0;s:0:"";}'),
-(245, 72, '_menu_item_xfn', ''),
-(246, 72, '_menu_item_url', '/'),
 (248, 73, '_menu_item_type', 'custom'),
 (249, 73, '_menu_item_menu_item_parent', '0'),
 (250, 73, '_menu_item_object_id', '73'),
@@ -907,10 +899,10 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (787, 134, '_add_components_block_1_service_list_3_service_item_image', 'field_57d65a949dd4a'),
 (788, 134, 'add_components_block_1_service_list_3_service_item_title', 'GET A FABULOUS JOB DONE AT YOUR CONVENIENCE'),
 (789, 134, '_add_components_block_1_service_list_3_service_item_title', 'field_57d65ab29dd4b'),
-(790, 134, 'add_components_block_1_service_list', 'a:4:{i:0;s:12:"service_item";i:1;s:12:"service_item";i:2;s:12:"service_item";i:3;s:12:"service_item";}');
-INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUES
+(790, 134, 'add_components_block_1_service_list', 'a:4:{i:0;s:12:"service_item";i:1;s:12:"service_item";i:2;s:12:"service_item";i:3;s:12:"service_item";}'),
 (791, 134, '_add_components_block_1_service_list', 'field_57d6597d9dd49'),
-(792, 134, 'add_components_block_2_cta_book_content', 'BOOK NOW &amp; GET <span class="cl-yellow">$10 OFF </span>YOUR FIRST APPOINTMENT. USE PROMO CODE <span class="cl-red">FIRSTLOVE</span> AT THE CHECKOUT.'),
+(792, 134, 'add_components_block_2_cta_book_content', 'BOOK NOW &amp; GET <span class="cl-yellow">$10 OFF </span>YOUR FIRST APPOINTMENT. USE PROMO CODE <span class="cl-red">FIRSTLOVE</span> AT THE CHECKOUT.');
+INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUES
 (793, 134, '_add_components_block_2_cta_book_content', 'field_57d65edcc5a07'),
 (794, 134, 'add_components_block_2_cta_link_text', 'Book Now'),
 (795, 134, '_add_components_block_2_cta_link_text', 'field_57d65ef2c5a08'),
@@ -1103,13 +1095,21 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (985, 154, 'add_components_block', ''),
 (986, 154, '_add_components_block', 'field_57d503080f04a'),
 (987, 155, '_edit_last', '1'),
-(988, 155, '_edit_lock', '1473756867:1'),
+(988, 155, '_edit_lock', '1473756989:1'),
 (989, 2, 'sub_title', 'SHORT COMMENT LINE'),
 (990, 2, '_sub_title', 'field_57d7bcea2c47f'),
 (991, 157, 'add_components_block', ''),
 (992, 157, '_add_components_block', 'field_57d503080f04a'),
 (993, 157, 'sub_title', 'SHORT COMMENT LINE'),
-(994, 157, '_sub_title', 'field_57d7bcea2c47f');
+(994, 157, '_sub_title', 'field_57d7bcea2c47f'),
+(995, 158, '_menu_item_type', 'post_type'),
+(996, 158, '_menu_item_menu_item_parent', '0'),
+(997, 158, '_menu_item_object_id', '2'),
+(998, 158, '_menu_item_object', 'page'),
+(999, 158, '_menu_item_target', ''),
+(1000, 158, '_menu_item_classes', 'a:1:{i:0;s:0:"";}'),
+(1001, 158, '_menu_item_xfn', ''),
+(1002, 158, '_menu_item_url', '');
 
 -- --------------------------------------------------------
 
@@ -1141,7 +1141,7 @@ CREATE TABLE IF NOT EXISTS `wp_posts` (
   `post_type` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'post',
   `post_mime_type` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `comment_count` bigint(20) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=158 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=159 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `wp_posts`
@@ -1169,10 +1169,9 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (69, 1, '2016-09-10 18:37:26', '2016-09-10 18:37:26', '', 'Login', '', 'publish', 'closed', 'closed', '', 'login', '', '', '2016-09-10 20:00:42', '2016-09-10 20:00:42', '', 0, 'http://localhost/demowp/gloss-cartel/?p=69', 3, 'nav_menu_item', '', 0),
 (70, 1, '2016-09-10 18:37:26', '2016-09-10 18:37:26', '', 'Book', '', 'publish', 'closed', 'closed', '', 'book', '', '', '2016-09-10 20:00:42', '2016-09-10 20:00:42', '', 0, 'http://localhost/demowp/gloss-cartel/?p=70', 4, 'nav_menu_item', '', 0),
 (71, 1, '2016-09-10 18:38:40', '0000-00-00 00:00:00', '', 'Auto Draft', '', 'auto-draft', 'closed', 'closed', '', '', '', '', '2016-09-10 18:38:40', '0000-00-00 00:00:00', '', 0, 'http://localhost/demowp/gloss-cartel/?page_id=71', 0, 'page', '', 0),
-(72, 1, '2016-09-10 18:40:03', '2016-09-10 18:40:03', '', 'Contact', '', 'publish', 'closed', 'closed', '', 'contact', '', '', '2016-09-10 18:45:49', '2016-09-10 18:45:49', '', 0, 'http://localhost/demowp/gloss-cartel/?p=72', 1, 'nav_menu_item', '', 0),
-(73, 1, '2016-09-10 18:40:03', '2016-09-10 18:40:03', '', 'FAQ', '', 'publish', 'closed', 'closed', '', 'faq', '', '', '2016-09-10 18:45:49', '2016-09-10 18:45:49', '', 0, 'http://localhost/demowp/gloss-cartel/?p=73', 2, 'nav_menu_item', '', 0),
-(74, 1, '2016-09-10 18:40:04', '2016-09-10 18:40:04', '', 'Privacy', '', 'publish', 'closed', 'closed', '', 'privacy', '', '', '2016-09-10 18:45:49', '2016-09-10 18:45:49', '', 0, 'http://localhost/demowp/gloss-cartel/?p=74', 3, 'nav_menu_item', '', 0),
-(75, 1, '2016-09-10 18:40:04', '2016-09-10 18:40:04', '', 'Terms', '', 'publish', 'closed', 'closed', '', 'terms', '', '', '2016-09-10 18:45:49', '2016-09-10 18:45:49', '', 0, 'http://localhost/demowp/gloss-cartel/?p=75', 4, 'nav_menu_item', '', 0),
+(73, 1, '2016-09-10 18:40:03', '2016-09-10 18:40:03', '', 'FAQ', '', 'publish', 'closed', 'closed', '', 'faq', '', '', '2016-09-13 08:59:30', '2016-09-13 08:59:30', '', 0, 'http://localhost/demowp/gloss-cartel/?p=73', 2, 'nav_menu_item', '', 0),
+(74, 1, '2016-09-10 18:40:04', '2016-09-10 18:40:04', '', 'Privacy', '', 'publish', 'closed', 'closed', '', 'privacy', '', '', '2016-09-13 08:59:30', '2016-09-13 08:59:30', '', 0, 'http://localhost/demowp/gloss-cartel/?p=74', 3, 'nav_menu_item', '', 0),
+(75, 1, '2016-09-10 18:40:04', '2016-09-10 18:40:04', '', 'Terms', '', 'publish', 'closed', 'closed', '', 'terms', '', '', '2016-09-13 08:59:30', '2016-09-13 08:59:30', '', 0, 'http://localhost/demowp/gloss-cartel/?p=75', 4, 'nav_menu_item', '', 0),
 (77, 1, '2016-09-10 20:15:20', '2016-09-10 20:15:20', 'a:9:{s:4:"type";s:16:"flexible_content";s:12:"instructions";s:0:"";s:8:"required";i:0;s:17:"conditional_logic";i:0;s:7:"wrapper";a:3:{s:5:"width";s:0:"";s:5:"class";s:0:"";s:2:"id";s:0:"";}s:12:"button_label";s:7:"Add Row";s:3:"min";s:0:"";s:3:"max";s:0:"";s:7:"layouts";a:3:{i:0;a:6:{s:3:"key";s:13:"57d4686360159";s:5:"label";s:18:"Footer Button Link";s:4:"name";s:18:"footer_button_link";s:7:"display";s:3:"row";s:3:"min";s:0:"";s:3:"max";s:0:"";}i:1;a:6:{s:3:"key";s:13:"57d4691ee314c";s:5:"label";s:11:"Footer Text";s:4:"name";s:11:"footer_text";s:7:"display";s:3:"row";s:3:"min";s:0:"";s:3:"max";s:0:"";}i:2;a:6:{s:3:"key";s:13:"57d46977e314e";s:5:"label";s:13:"Footer Social";s:4:"name";s:13:"footer_social";s:7:"display";s:3:"row";s:3:"min";s:0:"";s:3:"max";s:0:"";}}}', 'Group Footer Block', 'group_footer_block', 'publish', 'closed', 'closed', '', 'field_57d4685ee314a', '', '', '2016-09-10 20:15:20', '2016-09-10 20:15:20', '', 66, 'http://localhost/demowp/gloss-cartel/?post_type=acf-field&p=77', 0, 'acf-field', '', 0),
 (78, 1, '2016-09-10 20:15:20', '2016-09-10 20:15:20', 'a:8:{s:4:"type";s:3:"url";s:12:"instructions";s:0:"";s:8:"required";i:0;s:17:"conditional_logic";i:0;s:7:"wrapper";a:3:{s:5:"width";s:0:"";s:5:"class";s:0:"";s:2:"id";s:0:"";}s:13:"parent_layout";s:13:"57d4686360159";s:13:"default_value";s:0:"";s:11:"placeholder";s:0:"";}', 'Footer Button Link URL', 'footer_button_link_url', 'publish', 'closed', 'closed', '', 'field_57d46897e314b', '', '', '2016-09-10 20:17:49', '2016-09-10 20:17:49', '', 77, 'http://localhost/demowp/gloss-cartel/?post_type=acf-field&#038;p=78', 1, 'acf-field', '', 0),
 (79, 1, '2016-09-10 20:15:20', '2016-09-10 20:15:20', 'a:11:{s:4:"type";s:8:"textarea";s:12:"instructions";s:0:"";s:8:"required";i:0;s:17:"conditional_logic";i:0;s:7:"wrapper";a:3:{s:5:"width";s:0:"";s:5:"class";s:0:"";s:2:"id";s:0:"";}s:13:"parent_layout";s:13:"57d4691ee314c";s:13:"default_value";s:0:"";s:11:"placeholder";s:0:"";s:9:"maxlength";s:0:"";s:4:"rows";s:0:"";s:9:"new_lines";s:7:"wpautop";}', 'Block Footer Text', 'block_footer_text', 'publish', 'closed', 'closed', '', 'field_57d4691ee314d', '', '', '2016-09-10 20:17:49', '2016-09-10 20:17:49', '', 77, 'http://localhost/demowp/gloss-cartel/?post_type=acf-field&#038;p=79', 0, 'acf-field', '', 0),
@@ -1249,7 +1248,8 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (154, 1, '2016-09-13 08:35:12', '2016-09-13 08:35:12', '<div class="main-content-left">\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo diam et neque pellentesque, id tempor metus condimentum. In tincidunt magna sed eleifend posu- ere. Curabitur ornare ligula nec magna bibendum, id euis-mod arcu fringilla. Duis sed ante vel est sodales pulvinar. Etiam efficitur nulla sed lectus sollicitudin, eget dapibus sem placerat. Integer augue mi, sollicitudin ac tempus quis, mattis ut magna. Morbi efficitur luctus leo viverra tristique. Etiam elit elit, tincidunt vitae cursus ut, euismod nec metus. Donec pharetra maximus eleifend. Donec interdum arcu at orci auctorincidunt vitae cursus ut, euismod nec metus. Donec ph sagittis neque sodales. Cras malesuada diam ut accumsan.\r\n<div class="content-bottom-contact">THE<a>GLOSS CARTEL</a>team</div>\r\n</div>\r\n<div class="main-content-right">[contact-form-7 id="150" title="Contact form"]</div>', 'Contact us', '', 'inherit', 'closed', 'closed', '', '2-revision-v1', '', '', '2016-09-13 08:35:12', '2016-09-13 08:35:12', '', 2, 'http://localhost/demowp/gloss-cartel/2-revision-v1/', 0, 'revision', '', 0),
 (155, 1, '2016-09-13 08:47:49', '2016-09-13 08:47:49', 'a:7:{s:8:"location";a:2:{i:0;a:1:{i:0;a:3:{s:5:"param";s:9:"post_type";s:8:"operator";s:2:"==";s:5:"value";s:4:"page";}}i:1;a:1:{i:0;a:3:{s:5:"param";s:9:"post_type";s:8:"operator";s:2:"==";s:5:"value";s:4:"post";}}}s:8:"position";s:15:"acf_after_title";s:5:"style";s:7:"default";s:15:"label_placement";s:3:"top";s:21:"instruction_placement";s:5:"label";s:14:"hide_on_screen";s:0:"";s:11:"description";s:0:"";}', 'Group Component After Title', 'group-component-after-title', 'publish', 'closed', 'closed', '', 'group_57d7bcb77b0bf', '', '', '2016-09-13 08:51:43', '2016-09-13 08:51:43', '', 0, 'http://localhost/demowp/gloss-cartel/?post_type=acf-field-group&#038;p=155', 0, 'acf-field-group', '', 0),
 (156, 1, '2016-09-13 08:47:49', '2016-09-13 08:47:49', 'a:10:{s:4:"type";s:4:"text";s:12:"instructions";s:0:"";s:8:"required";i:0;s:17:"conditional_logic";i:0;s:7:"wrapper";a:3:{s:5:"width";s:0:"";s:5:"class";s:0:"";s:2:"id";s:0:"";}s:13:"default_value";s:0:"";s:11:"placeholder";s:0:"";s:7:"prepend";s:0:"";s:6:"append";s:0:"";s:9:"maxlength";s:0:"";}', 'Sub title', 'sub_title', 'publish', 'closed', 'closed', '', 'field_57d7bcea2c47f', '', '', '2016-09-13 08:47:49', '2016-09-13 08:47:49', '', 155, 'http://localhost/demowp/gloss-cartel/?post_type=acf-field&p=156', 0, 'acf-field', '', 0),
-(157, 1, '2016-09-13 08:52:56', '2016-09-13 08:52:56', '<div class="main-content-left">\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo diam et neque pellentesque, id tempor metus condimentum. In tincidunt magna sed eleifend posu- ere. Curabitur ornare ligula nec magna bibendum, id euis-mod arcu fringilla. Duis sed ante vel est sodales pulvinar. Etiam efficitur nulla sed lectus sollicitudin, eget dapibus sem placerat. Integer augue mi, sollicitudin ac tempus quis, mattis ut magna. Morbi efficitur luctus leo viverra tristique. Etiam elit elit, tincidunt vitae cursus ut, euismod nec metus. Donec pharetra maximus eleifend. Donec interdum arcu at orci auctorincidunt vitae cursus ut, euismod nec metus. Donec ph sagittis neque sodales. Cras malesuada diam ut accumsan.\r\n<div class="content-bottom-contact">THE<a>GLOSS CARTEL</a>team</div>\r\n</div>\r\n<div class="main-content-right">[contact-form-7 id="150" title="Contact form"]</div>', 'Contact us', '', 'inherit', 'closed', 'closed', '', '2-revision-v1', '', '', '2016-09-13 08:52:56', '2016-09-13 08:52:56', '', 2, 'http://localhost/demowp/gloss-cartel/2-revision-v1/', 0, 'revision', '', 0);
+(157, 1, '2016-09-13 08:52:56', '2016-09-13 08:52:56', '<div class="main-content-left">\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo diam et neque pellentesque, id tempor metus condimentum. In tincidunt magna sed eleifend posu- ere. Curabitur ornare ligula nec magna bibendum, id euis-mod arcu fringilla. Duis sed ante vel est sodales pulvinar. Etiam efficitur nulla sed lectus sollicitudin, eget dapibus sem placerat. Integer augue mi, sollicitudin ac tempus quis, mattis ut magna. Morbi efficitur luctus leo viverra tristique. Etiam elit elit, tincidunt vitae cursus ut, euismod nec metus. Donec pharetra maximus eleifend. Donec interdum arcu at orci auctorincidunt vitae cursus ut, euismod nec metus. Donec ph sagittis neque sodales. Cras malesuada diam ut accumsan.\r\n<div class="content-bottom-contact">THE<a>GLOSS CARTEL</a>team</div>\r\n</div>\r\n<div class="main-content-right">[contact-form-7 id="150" title="Contact form"]</div>', 'Contact us', '', 'inherit', 'closed', 'closed', '', '2-revision-v1', '', '', '2016-09-13 08:52:56', '2016-09-13 08:52:56', '', 2, 'http://localhost/demowp/gloss-cartel/2-revision-v1/', 0, 'revision', '', 0),
+(158, 1, '2016-09-13 08:59:30', '2016-09-13 08:59:30', '', 'Contact', '', 'publish', 'closed', 'closed', '', 'contact-2', '', '', '2016-09-13 08:59:30', '2016-09-13 08:59:30', '', 0, 'http://localhost/demowp/gloss-cartel/?p=158', 1, 'nav_menu_item', '', 0);
 
 -- --------------------------------------------------------
 
@@ -1312,7 +1312,6 @@ INSERT INTO `wp_term_relationships` (`object_id`, `term_taxonomy_id`, `term_orde
 (68, 2, 0),
 (69, 2, 0),
 (70, 2, 0),
-(72, 3, 0),
 (73, 3, 0),
 (74, 3, 0),
 (75, 3, 0),
@@ -1323,7 +1322,8 @@ INSERT INTO `wp_term_relationships` (`object_id`, `term_taxonomy_id`, `term_orde
 (147, 5, 0),
 (147, 6, 0),
 (149, 4, 0),
-(149, 7, 0);
+(149, 7, 0),
+(158, 3, 0);
 
 -- --------------------------------------------------------
 
@@ -1364,7 +1364,7 @@ CREATE TABLE IF NOT EXISTS `wp_usermeta` (
   `user_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `meta_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `meta_value` longtext COLLATE utf8mb4_unicode_ci
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `wp_usermeta`
@@ -1396,7 +1396,8 @@ INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 (23, 1, 'metaboxhidden_nav-menus', 'a:2:{i:0;s:22:"add-post-type-postcode";i:1;s:12:"add-post_tag";}'),
 (24, 1, 'acf_user_settings', 'a:3:{s:29:"collapsed_field_57d6597d9dd49";s:7:"0,1,2,3";s:29:"collapsed_field_57d503080f04a";s:7:"0,1,2,3";s:15:"show_field_keys";s:1:"0";}'),
 (25, 1, 'meta-box-order_page', 'a:4:{s:15:"acf_after_title";s:0:"";s:4:"side";s:36:"submitdiv,pageparentdiv,postimagediv";s:6:"normal";s:141:"acf-group_57d502ea94102,page_option,acf-group_57d44a2e02cb6,acf-group_57d50625f2223,postcustom,commentstatusdiv,commentsdiv,slugdiv,authordiv";s:8:"advanced";s:0:"";}'),
-(26, 1, 'screen_layout_page', '2');
+(26, 1, 'screen_layout_page', '2'),
+(27, 1, 'nav_menu_recently_edited', '3');
 
 -- --------------------------------------------------------
 
@@ -1555,12 +1556,12 @@ ALTER TABLE `wp_options`
 -- AUTO_INCREMENT for table `wp_postmeta`
 --
 ALTER TABLE `wp_postmeta`
-  MODIFY `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=995;
+  MODIFY `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1004;
 --
 -- AUTO_INCREMENT for table `wp_posts`
 --
 ALTER TABLE `wp_posts`
-  MODIFY `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=158;
+  MODIFY `ID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=159;
 --
 -- AUTO_INCREMENT for table `wp_termmeta`
 --
@@ -1580,7 +1581,7 @@ ALTER TABLE `wp_term_taxonomy`
 -- AUTO_INCREMENT for table `wp_usermeta`
 --
 ALTER TABLE `wp_usermeta`
-  MODIFY `umeta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
+  MODIFY `umeta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT for table `wp_users`
 --
