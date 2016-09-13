@@ -22,7 +22,7 @@
       {% endblock %}
 
       <main role="main" class="page-content-wrappre clearfix">
-        <div class="{% if function('is_page') %}{{ page_layout }} {% else %}container{% endif %}">
+        <div class="{{ page_layout }}">
           <div class="main-content {% if block('sidebar') %}has-sidebar{% endif %}">
             {% block content %}
               <div class="content-wrapper">

@@ -1,0 +1,21 @@
+{% block content %}
+  <div class="box-dry__list">
+    {% for post in term.get_posts({'post_type': 'wf_product', 'numberposts' : 10}) %}
+      <div class="box-dry__item">
+        <div class="box-dry__image">
+          <a href="#"><img src="{{post.get_field('product_image')}}"></a>
+        </div>
+        <div class="box-dry__content">
+          <div class="box-dry__title">{{ post.title }}</div>
+          <div class="box-dry__subtitle">{{ post.get_field('product_describe') }}</div>
+          <div class="box-dry__group-price-date">
+            <div class="box-dry__price">{{ post.get_field('product_price') }}</div>
+            <div class="box-dry__date">{{ post.get_field('product_time') }}</div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  {#% include 'pagination.twig' %#}
+{% endblock %}

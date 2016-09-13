@@ -1,6 +1,11 @@
 {% extends 'layout.twig' %}
 
 {% block content %}
-  <h2 id="page-title">{{term.name}}</h2> 
+  {% if term.name and (title_option != "1") %}
+    <div id="page-title" class="page-title">
+      <h1>{{term.name}}</h1>
+    </div>
+  {% endif %}
+
   {% include ["taxonomy-"~term.id~".twig", "taxonomy-"~term.taxonomy~".twig", 'taxonomy-tease.twig'] %}
 {% endblock %}

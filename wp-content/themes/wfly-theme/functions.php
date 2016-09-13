@@ -71,6 +71,19 @@ function wf_create_custom_post_types() {
       'has_archive' => true,
     )
   );
+  register_post_type( 'wf_package',
+    array(
+      'labels' => array(
+        'name' => __( 'Packages' ),
+        'singular_name' => __( 'Packages' )
+      ),
+      'supports' => array(
+        'title'
+      ),
+      'public' => true,
+      'has_archive' => true,
+    )
+  );
   register_post_type( 'slideshow',
     array(
       'labels' => array(
@@ -102,7 +115,7 @@ function wf_create_custom_taxonomy() {
     'show_in_nav_menus'          => true,
     'show_tagcloud'              => true,
   );
-  register_taxonomy('service_product', 'wf_product', $args_product);
+  register_taxonomy('service_product', array('wf_product', 'wf_package'), $args_product);
 }
 add_action( 'init', 'wf_create_custom_taxonomy', 0 );
 ?>

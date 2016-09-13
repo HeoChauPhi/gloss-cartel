@@ -33,6 +33,9 @@ $context['count'] = $count;
 $context['paged'] = $paged;
 $taxonomy = new TimberTerm();
 
+$context['title_option'] = $taxonomy->disable_title;
+$context['page_layout'] = $taxonomy->taxonomy_layout;
+
 $args = array(
   'post_type' => 'any',
   'tax_query' => array(
