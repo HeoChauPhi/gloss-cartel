@@ -1,0 +1,25 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+  {% if post.title and (title_option != "on") %}
+    <div id="page-title" class="page-title">
+      <h1>{{ post.title }}</h1>
+      <div class="sub-title">{{post.get_field('sub_title')}}</div>
+    </div>
+  {% endif %}
+
+  {% for post in posts %}
+    {% if not function('is_page') %}
+      <h3 class="post-title"><a href="{{ post.link }}">{{ post.title }}</a></h3>
+    {% endif %}
+    <div class="body-content">
+      {{ post.content }}
+    </div>
+    {{ flexible_content('add_components_block') }}
+  {% endfor %}
+
+  {% if function('comments_open') %}
+  {% include 'comments.twig' %}
+  {{ function('comment_form') }}
+  {% endif %}
+{% endblock %}

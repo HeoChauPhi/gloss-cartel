@@ -7,7 +7,7 @@
           {% for item in acfwidget('group_footer_block', 'footer_widget-2') %}
             {% if item.acf_fc_layout == "footer_button_link" %}
               <div class="buttom-footer">
-                <a href="{{item.footer_button_link_url}}" class="btn btn_yello">{{item.footer_button_link_text}}</a>
+                <a href="{{ site.url }}/{{item.footer_button_link_url}}" class="btn btn_yello">{{item.footer_button_link_text}}</a>
               </div>
             {% endif %}
           {% endfor %}
