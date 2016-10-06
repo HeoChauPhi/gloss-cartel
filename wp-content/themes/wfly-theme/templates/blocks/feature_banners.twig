@@ -1,7 +1,7 @@
 {% for post in feature_banner %}
 <div class="box-feature">
   {% for item in post.get_field('slidehsow_items') %}
-  <div class="box-feature__iamge">
+  <div class="box-feature__iamge" style="background-image: url('{{ item.slideshow_image }}')">
     <img src="{{ item.slideshow_image }}">
   </div>
   <div class="box-feature__heightline">
