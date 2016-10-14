@@ -1,0 +1,96 @@
+{
+    "key": "group_57d50625f2223",
+    "title": "Group field Slideshow",
+    "fields": [
+        {
+            "key": "field_57d5063be300c",
+            "label": "Slidehsow items",
+            "name": "slidehsow_items",
+            "type": "flexible_content",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "button_label": "Add Slide",
+            "min": "",
+            "max": "",
+            "layouts": [
+                {
+                    "key": "57d50663bc589",
+                    "name": "slideshow_item",
+                    "label": "Slideshow item",
+                    "display": "row",
+                    "sub_fields": [
+                        {
+                            "key": "field_57d5067ae300d",
+                            "label": "Slideshow Image",
+                            "name": "slideshow_image",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "url",
+                            "preview_size": "full",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        },
+                        {
+                            "key": "field_57d5069ae300e",
+                            "label": "Slideshow heightline",
+                            "name": "slideshow_heightline",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "slideshow"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content"
+    ],
+    "active": 1,
+    "description": ""
+}

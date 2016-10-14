@@ -13,7 +13,7 @@ if ( ! class_exists( 'Timber' ) ) {
 }
 
 // Get custom function template with Timber
-Timber::$dirname = array('templates', 'templates/acf-setting', 'templates/blocks', 'templates/pages', 'templates/layouts', 'templates/views');
+Timber::$dirname = array('templates', 'templates/blocks', 'templates/pages', 'templates/layouts', 'templates/views');
 
 // Disable Related post
 function related($custom_cat, $showpost = -1) {

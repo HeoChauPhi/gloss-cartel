@@ -1,8 +1,8 @@
 <div class="box-product-sale_item">
   <div class="box-product-sale__image">
-    <a href="{{item.link}}"><img src="{{item.service_product_image}}"></a>
+    <img src="{{item.service_product_image}}">
   </div>
-  <h2 class="box-product-sale__title"><a href="{{item.link}}">{{item.name}}</a></h2>
+  <h2 class="box-product-sale__title">{{item.name}}</h2>
   <div class="box-product-sale__content">
     <div class="box-product-sale__from">
       <div class="text">from</div>
@@ -14,9 +14,9 @@
   {% for child in item.children %}
     <div class="box-product-sale_item">
       <div class="box-product-sale__image">
-        <a href="{{item.link}}"><img src="{{child.service_product_image}}"></a>
+        <img src="{{child.service_product_image}}">
       </div>
-      <h2 class="box-product-sale__title"><a href="{{child.link}}">{{child.name}}</a></h2>
+      <h2 class="box-product-sale__title">{{child.name}}</h2>
       <div class="box-product-sale__content">
         <div class="box-product-sale__from">
           <div class="text">from</div>
