@@ -216,6 +216,35 @@
                     "max": ""
                 },
                 {
+                    "key": "58009d830a42c",
+                    "name": "box_link_scroll",
+                    "label": "Box Link Scroll",
+                    "display": "row",
+                    "sub_fields": [
+                        {
+                            "key": "field_58009d9a0a42d",
+                            "label": "Link Text",
+                            "name": "link_text",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                {
                     "key": "57f5bd73f0e22",
                     "name": "box_custom_text",
                     "label": "Box Custom Text",
@@ -311,5 +340,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": 1,
-    "description": ""
+    "description": "",
+    "modified": 1476442603
 }
