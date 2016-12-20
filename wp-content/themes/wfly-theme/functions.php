@@ -118,4 +118,3 @@ function wf_create_custom_taxonomy() {
   register_taxonomy('service_product', array('wf_product', 'wf_package'), $args_product);
 }
 add_action( 'init', 'wf_create_custom_taxonomy', 0 );
-?>

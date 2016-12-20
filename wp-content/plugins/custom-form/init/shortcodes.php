@@ -66,7 +66,7 @@ function create_form_subscribe() {
     $context = Timber::get_context();
 
     if( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) &&  $_POST['action'] == "new_post") {
- 
+
       $email =  $_POST['email'];
       // ADD THE FORM INPUT TO $new_post ARRAY
       $email_float = str_replace(array('@', '.', ' '),"",$email);
@@ -84,7 +84,7 @@ function create_form_subscribe() {
           'post_status'   =>   'pending',
           'post_type' =>   'postcode'
         );
-     
+
         //SAVE THE POST
         $pid = wp_insert_post($new_post);
         update_post_meta($pid, '_cmb_email', $email);
@@ -125,7 +125,8 @@ function create_form_login() {
     }
 
     $context = Timber::get_context();
-    $context['action'] = $_SERVER['REQUEST_URI'];
+    //$context['action'] = $_SERVER['REQUEST_URI'];
+    $context['action'] = "https://secure.acuityscheduling.com/login.php?loggedout=1&ajax=0&popup=0";
     $context['book_link'] = home_url('cf_book_now');
     Timber::render('templates/form-login.twig', $context);
 

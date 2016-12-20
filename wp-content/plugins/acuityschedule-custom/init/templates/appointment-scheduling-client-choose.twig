@@ -1,0 +1,47 @@
+{% if ( user_email is empty ) or ( user_email == 'null' ) %}
+  {% include "form-signup.twig" %}
+{% else %}
+  {% set cat_img = '' %}
+  {% for cat_item in categories %}
+    {% if cat_item.name == data.category %}
+      {% set cat_img = cat_item.service_product_image %}
+    {% endif %}
+  {% endfor %}
+
+  <div class="client-choose-look">
+    <div class="group-image">
+      <div class="group-image">
+        <img src="{{ cat_img }}">
+      </div>
+      <div class="group-info">
+        <div class="group-name">
+          <h2>{{ data.name }}</h2>
+          <span>{{ data.category }}</span>
+        </div>
+        <div class="group-price">
+          <span class="price">{{ data.price }}</span>
+          <span class="duration">{{ data.duration }} min</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="group-content">
+      <div class="description">Upload an image of the look you want.</div>
+      <form id="form_confirm" class="form-confirm" name="form_confirm" method="post" action="">
+        <div class="file-upload">
+          <input type="file" name="confirm_image">
+        </div>
+
+        <input type="hidden" name="confirm_catimg" value="{{ cat_img }}">
+        <input type="hidden" name="confirm_category" value="{{ data.category }}">
+        <input type="hidden" name="confirm_name" value="{{ data.name }}">
+        <input type="hidden" name="confirm_price" value="{{ data.price }}">
+        <input type="hidden" name="confirm_duration" value="{{ data.duration }}">
+
+        <div class="form-action">
+          <input type="submit" name="action" value="Confirm">
+        </div>
+      </form>
+    </div>
+  </div>
+{% endif %}

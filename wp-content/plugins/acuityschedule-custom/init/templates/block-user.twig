@@ -1,0 +1,20 @@
+{% if block_user %}
+  <div class="block-user">
+    <a href="#" class="sign-out">Sign Out</a>
+  </div>
+  <script type="text/javascript">
+    (function($) {
+      function TestJquery() {
+        //alert('abcd');
+      }
+
+      $(document).ready(function() {
+        TestJquery();
+      });
+    })(jQuery);
+  </script>
+{% else %}
+  <div class="block-user">
+    <a href="{{ function('home_url') }}/appointment-scheduling-registor" class="sign-in">Sign In</a>
+  </div>
+{% endif %}

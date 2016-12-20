@@ -1,0 +1,52 @@
+{% if (user_email == 'null') or (user_email is empty) %}
+  <div class="link-login">
+    or <a href="{{ function('home_url') }}/appointment-scheduling-signin">Log in here</a>
+  </div>
+
+  <form id="from_signup" name="from_signup" action="" method="post">
+    <div class="from-item">
+      <label for="signup_first_name">First Name</label>
+      <input type="text" value="" size="30" name="signup_first_name" class="form-text" placeholder="First Name">
+      {% if signup_first_name %}
+        <div class="message">{{ signup_first_name }}</div>
+      {% endif %}
+    </div>
+    <div class="from-item">
+      <label for="signup_last_name">Last Name</label>
+      <input type="text" value="" size="30" name="signup_last_name" class="form-text" placeholder="Last Name">
+      {% if signup_last_name %}
+        <div class="message">{{ signup_last_name }}</div>
+      {% endif %}
+    </div>
+    <div class="from-item">
+      <label for="signup_email">Email</label>
+      <input type="email" value="" size="30" name="signup_email" class="form-text" placeholder="Your Email">
+      {% if signup_email %}
+        <div class="message">{{ signup_email }}</div>
+      {% endif %}
+    </div>
+    <div class="from-item">
+      <label for="signup_password">Password</label>
+      <input type="password" value="" size="30" name="signup_password" class="form-text" placeholder="Password">
+      {% if signup_password %}
+        <div class="message">{{ signup_password }}</div>
+      {% endif %}
+    </div>
+    <div class="from-item">
+      <label for="signup_re_password">Please re-enter password</label>
+      <input type="password" value="" size="30" name="signup_re_password" class="form-text" placeholder="Please re-enter password">
+      {% if signup_re_password %}
+        <div class="message">{{ signup_re_password }}</div>
+      {% endif %}
+    </div>
+
+    <div class="form-action">
+      <input type="submit" name="action" value="Sign me up" />
+    </div>
+  </form>
+  {% if message_signup %}
+    <div class="message">{{ message_signup }}</div>
+  {% endif %}
+{% else %}
+  <div class="welcome">Welcome {{ user_email }} !</div>
+{% endif %}

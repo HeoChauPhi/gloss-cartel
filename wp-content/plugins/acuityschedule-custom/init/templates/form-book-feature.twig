@@ -1,0 +1,49 @@
+<form id="book_now" class="form-schedule-feature" name="book_now" method="post" action="">
+  <div class="form-item">
+    <input type="text" name="client_area" placeholder="Enter Your Area">
+    {% if area_message %}
+      <div class="message">{{ area_message }}</div>
+    {% endif %}
+  </div>
+
+  <div class="form-item">
+    <select name="client_service">
+      <option selected="" disabled="" value="">Choose a service</option>
+      {% for category, group in data %}
+        <optgroup label="{{ category }}">
+          {% for key, item in group %}
+            <option data-id="{{ item.id }}" value="{{ item.id }}">{{ item.name }}</option>
+          {% endfor %}
+        </optgroup>
+      {% endfor %}
+    </select>
+    {% if service_message %}
+      <div class="message">{{ service_message }}</div>
+    {% endif %}
+  </div>
+
+  <div class="form-item">
+    <input type="text" name="client_date" placeholder="Pick a date">
+    {% if date_message %}
+      <div class="message">{{ date_message }}</div>
+    {% endif %}
+  </div>
+
+  <div class="form-item">
+    <select name="client_time">
+      <option selected="" disabled="" value="">Choose Times</option>
+      {% for hour in 7..20 %}
+        {% for time in ['00', '15', '30', '45'] %}
+          <option>{{ hour }}:{{ time }}</option>
+        {% endfor %}
+      {% endfor %}
+    </select>
+    {% if time_message %}
+      <div class="message">{{ time_message }}</div>
+    {% endif %}
+  </div>
+
+  <div class="form-action">
+    <input type="submit" name="action" value="Book Now">
+  </div>
+</form>

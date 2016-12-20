@@ -1,0 +1,32 @@
+{% if ( user_email is empty ) or ( user_email == 'null' ) %}
+  <div class="link-login">
+    or <a href="{{ function('home_url') }}/appointment-scheduling-registor">Register here</a>
+  </div>
+
+  <form id="from_signin" name="from_signin" action="" method="post">
+    <div class="from-item">
+      <label for="signin_email">Email</label>
+      <input type="email" required="" value="" placeholder="Email Address" name="signin_email">
+      {% if message_email %}
+        <div class="message">{{ message_email }}</div>
+      {% endif %}
+    </div>
+    <div class="from-item">
+      <label for="signin_password">Password</label>
+      <input type="password" required="" placeholder="Password" name="signin_password">
+      {% if message_pass %}
+        <div class="message">{{ message_pass }}</div>
+      {% endif %}
+    </div>
+
+    <div class="form-action">
+      <input type="submit" name="action" value="Sign In" />
+    </div>
+  </form>
+
+  {% if message_signin %}
+    <div class="message">{{ message_signin }}</div>
+  {% endif %}
+{% else %}
+  <div class="welcome">Welcome {{ user_email }} !</div>
+{% endif %}
