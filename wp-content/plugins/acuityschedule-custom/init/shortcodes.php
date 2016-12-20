@@ -332,7 +332,11 @@ function ASCB_signup( $atts ) {
           update_post_meta($pid, '_cmb2_ascb_email', $signup_email);
           update_post_meta($pid, '_cmb2_ascb_pass', $signup_password);
 
-          wp_redirect($link_paynow);
+          if(isset($_COOKIE['Client']['Service'])) {
+            wp_redirect($link_paynow);
+          } else {
+            wp_redirect('');
+          }
         }
       }
     }
@@ -399,7 +403,12 @@ function ASCB_signin( $atts ) {
           setcookie("signin[email]", $signin_email, time() + 86400, '/'); // 86400 = 1 day
           setcookie("signin[emailid]", $email_convert, time() + 86400, '/'); // 86400 = 1 day
 
-          wp_redirect($link_paynow);
+          if(isset($_COOKIE['Client']['Service'])) {
+            wp_redirect($link_paynow);
+          } else {
+            wp_redirect('');
+            //header("refresh: .1");
+          }
         } else {
           $context['message_signin'] = __('Email or Password for ' . $signin_email . ' does not exist!', 'ascb');
         }

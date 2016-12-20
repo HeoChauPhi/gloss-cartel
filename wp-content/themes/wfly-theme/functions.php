@@ -34,6 +34,7 @@ if(!is_admin()) {
   function wf_styles() {
     wp_register_style('custom-style', get_template_directory_uri() . '/css/styles.css', array(), '1.0', 'all');
     wp_enqueue_style('custom-style');
+
     wp_register_style('custom-css', get_template_directory_uri() . '/css/custom-css.css', array(), '1.0', 'all');
     wp_enqueue_style('custom-css');
   }

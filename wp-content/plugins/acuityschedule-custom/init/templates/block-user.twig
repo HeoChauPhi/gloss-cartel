@@ -5,7 +5,8 @@
   <script type="text/javascript">
     (function($) {
       function TestJquery() {
-        //alert('abcd');
+        // console.log($.cookie('signin[email]'));
+        // $.cookie("signin\[email\]", null);
       }
 
       $(document).ready(function() {
@@ -15,6 +16,6 @@
   </script>
 {% else %}
   <div class="block-user">
-    <a href="{{ function('home_url') }}/appointment-scheduling-registor" class="sign-in">Sign In</a>
+    <a href="{{ function('home_url') }}/appointment-scheduling-signin/" class="sign-in">Sign In</a>
   </div>
 {% endif %}
