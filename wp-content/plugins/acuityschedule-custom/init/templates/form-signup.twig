@@ -1,47 +1,49 @@
+<div class="box-gb">
+  <div class="box-feature__iamge">
+    <img src="images/image-demo/bg-login.png" alt="">
+  </div>
+</div>
+
 {% if (user_email == 'null') or (user_email is empty) %}
+  <div class="box-form-login">
+    <h2 class="box-form-login__title form-title">register now</h2>
   <div class="link-login">
     or <a href="{{ function('home_url') }}/appointment-scheduling-signin">Log in here</a>
   </div>
 
   <form id="from_signup" name="from_signup" action="" method="post">
     <div class="from-item">
-      <label for="signup_first_name">First Name</label>
-      <input type="text" value="" size="30" name="signup_first_name" class="form-text" placeholder="First Name">
+      <input type="text" value="" size="30" name="signup_first_name" class="form-text input" placeholder="First Name">
       {% if signup_first_name %}
         <div class="message">{{ signup_first_name }}</div>
       {% endif %}
     </div>
     <div class="from-item">
-      <label for="signup_last_name">Last Name</label>
-      <input type="text" value="" size="30" name="signup_last_name" class="form-text" placeholder="Last Name">
+      <input type="text" value="" size="30" name="signup_last_name" class="form-text input" placeholder="Last Name">
       {% if signup_last_name %}
         <div class="message">{{ signup_last_name }}</div>
       {% endif %}
     </div>
     <div class="from-item">
-      <label for="signup_email">Email</label>
-      <input type="email" value="" size="30" name="signup_email" class="form-text" placeholder="Your Email">
+      <input type="email" value="" size="30" name="signup_email" class="form-text input" placeholder="Your Email">
       {% if signup_email %}
         <div class="message">{{ signup_email }}</div>
       {% endif %}
     </div>
     <div class="from-item">
-      <label for="signup_password">Password</label>
-      <input type="password" value="" size="30" name="signup_password" class="form-text" placeholder="Password">
+      <input type="password" value="" size="30" name="signup_password" class="form-text input" placeholder="Password">
       {% if signup_password %}
         <div class="message">{{ signup_password }}</div>
       {% endif %}
     </div>
     <div class="from-item">
-      <label for="signup_re_password">Please re-enter password</label>
-      <input type="password" value="" size="30" name="signup_re_password" class="form-text" placeholder="Please re-enter password">
+      <input type="password" value="" size="30" name="signup_re_password" class="form-text input" placeholder="Please re-enter password">
       {% if signup_re_password %}
         <div class="message">{{ signup_re_password }}</div>
       {% endif %}
     </div>
-
-    <div class="form-action">
-      <input type="submit" name="action" value="Sign me up" />
+    <div class="form-submit">
+      <input type="submit" name="action"  class="button botton button-primary button-large" value="Sign me up">
     </div>
   </form>
   {% if message_signup %}
@@ -49,4 +51,6 @@
   {% endif %}
 {% else %}
   <div class="welcome">Welcome {{ user_email }} !</div>
+
+</div>
 {% endif %}

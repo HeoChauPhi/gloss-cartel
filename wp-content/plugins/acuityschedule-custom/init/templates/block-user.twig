@@ -1,10 +1,19 @@
 {% if block_user %}
-  <div class="block-user">
-    <span>Hello {{ user_login }} !</span>
-    <a href="/" class="sign-out">Sign Out</a>
+  <div class="block-user box-menu-myaccount">
+    <ul class="menu-myaccount">
+      <li><a href="#">{{ user_login }}</a>
+      <ul>
+        <li><a href="/" class="sign-out">Sign Out</a></li>
+      </ul>
+      </li>
+    </ul>
+
+    <div class="picture-user">
+      <img src="images/myaccount.png">
+    </div>
   </div>
 {% else %}
-  <div class="block-user">
+  <div class="block-user box-menu-myaccount logain1">
     <a href="{{ function('home_url') }}/appointment-scheduling-signin/" class="sign-in">Sign In</a>
   </div>
 {% endif %}

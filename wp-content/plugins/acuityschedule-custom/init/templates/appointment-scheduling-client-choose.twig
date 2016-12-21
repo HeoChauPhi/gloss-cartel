@@ -1,3 +1,9 @@
+<div class="box-gb">
+  <div class="box-feature__iamge">
+    <img src="images/image-demo/bg-login.png" alt="">
+  </div>
+</div>
+
 {% if ( user_email is empty ) or ( user_email == 'null' ) %}
   {% include "form-signup.twig" %}
 {% else %}
@@ -7,10 +13,12 @@
       {% set cat_img = cat_item.service_product_image %}
     {% endif %}
   {% endfor %}
-
+  <div class="box-form-login">
+    <a href="/" class="back-link">Back</a>
+    <h2 class="box-form-login__title form-title">CHOOSE YOUR LOOK</h2>
   <div class="client-choose-look">
     <div class="group-image">
-      <div class="group-image">
+      <div class="group-image__images">
         <img src="{{ cat_img }}">
       </div>
       <div class="group-info">
@@ -19,15 +27,18 @@
           <span>{{ data.category }}</span>
         </div>
         <div class="group-price">
-          <span class="price">{{ data.price }}</span>
-          <span class="duration">{{ data.duration }} min</span>
+          <span class="price"> <sup>$</sup> {{ data.price }}</span>
+          <div class="duration">{{ data.duration }} min</div>
         </div>
       </div>
     </div>
 
     <div class="group-content">
-      <div class="description">Upload an image of the look you want.</div>
       <form id="form_confirm" class="form-confirm" name="form_confirm" method="post" action="">
+        <div class="description">
+          <input type="checkbox">
+          I've got my own look in mind - you can brief us on the day or upload an image of your style muse below.
+        </div>
         <div class="file-upload">
           <input type="file" name="confirm_image">
         </div>
@@ -38,10 +49,11 @@
         <input type="hidden" name="confirm_price" value="{{ data.price }}">
         <input type="hidden" name="confirm_duration" value="{{ data.duration }}">
 
-        <div class="form-action">
-          <input type="submit" name="action" value="Confirm">
-        </div>
+        <div class="box-from-contact__button">
+        <input type="submit" name="action" value="Confirm" class="wpcf7-form-control wpcf7-submit button">
+      </div>
       </form>
+    </div>
     </div>
   </div>
 {% endif %}

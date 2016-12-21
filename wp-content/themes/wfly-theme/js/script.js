@@ -74,7 +74,7 @@
   function matchHeight() {
     //$(this).find('.post-cars .car-title').matchHeight();
   }
-  
+
  function footerjs() {
     var height_window = $(window).height();
     var height_body = $('html > body').height();
@@ -83,7 +83,7 @@
       $('.page-content-wrappre').css('min-height', height_window - height_header - 54 + 'px');
     }
   }
-  
+
   function scrolldown() {
    $('.scrol-bottom a').click(function() {
     var target = $(this.hash);
@@ -95,7 +95,7 @@
      }
     });
    }
-  
+
   $(document).ready(function() {
     // Call to function
     headerFixed();
@@ -108,6 +108,14 @@
     loginForm();
     matchHeight();
     scrolldown();
+
+
+    var hunghtfeature = $('.box-feature').height();
+    var hunghtfeature1 = $('.box-form-login').outerHeight();
+    $('.form-schedule-feature').css('top', hunghtfeature - 258 + 'px');
+    if( hunghtfeature1 > 530 ) {
+      $('.box-feature__iamge').css('height', 825 + 'px');
+    }
   });
 
   $(window).load(function() {
