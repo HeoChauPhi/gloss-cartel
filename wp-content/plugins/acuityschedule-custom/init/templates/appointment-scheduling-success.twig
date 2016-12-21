@@ -1,1 +1,48 @@
-<a href="/" class="back-link">Back</a>
+
+
+<div class="box-gb">
+  <div class="box-feature__iamge">
+    <img src="images/image-demo/bg-login.png" alt="">
+  </div>
+</div>
+
+{% if (user_email == 'null') or (user_email is empty) %}
+  <div class="box-form-login">
+    <a href="/" class="back-link">Back</a>
+    <h2 class="box-form-login__title form-title">YOUR ALL BOOKED!</h2>
+    <div class="content-wraper">
+      <div class="content-top">
+        <p>You'll get a booking confirmation email soon.
+  We'll also send you an email and SMS reminder 12 hours before your appointment.</p>
+      </div>
+      <div class="content-mediul">
+        <h3>HOW TO PREP FOR YOUR STYLIST </h3>
+        <div class="content-top__item1">Wash your hair 15 minutes before your stylist arrives - it's best to shampoo twice & condition once.</div>
+        <div class="content-top__item2">Setup a chair close to a power outlet, preferably with a bench for the technicians equipment.</div>
+        <div class="content-top__item3">Check out our <a href="#">FAQs</a> here</div>
+      </div>
+      <div class="content-bottom">
+        <div class="content-bottom__text">Stay up to date with all the latest Gloss Cartel news and special offers on Facebook, Twitter and Instagram.</div>
+        <div class="content-bottom__icon">
+          <div class="box-social">
+            <div class="box-social__list">
+              <div class="box-social__item">
+                <a href="http://facebook.com"><span class="icon-facebook2"></span>Facebook2</a>
+              </div>
+              <div class="box-social__item">
+                <a href="http://twitter.com"><span class="icon-twitter"></span>Twitter</a>
+              </div>
+              <div class="box-social__item">
+                <a href="http://instagram.com"><span class="icon-instagram"></span>Instagram</a>
+              </div>
+            </div>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+{% endif %}
+
+
+
+
