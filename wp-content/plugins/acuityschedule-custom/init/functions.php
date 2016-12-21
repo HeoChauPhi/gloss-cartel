@@ -63,6 +63,7 @@ function remove_cookie($name) {
 add_filter('timber_context', 'ascb_twig_data');
 function ascb_twig_data($data){
   if( isset($_COOKIE['signin']['email']) && !empty($_COOKIE['signin']['email'])) {
+    $data['user_login'] = $_COOKIE['signin']['email'];
     $data['block_user'] = 1;
   } else {
     $data['block_user'] = "";

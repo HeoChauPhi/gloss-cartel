@@ -24,28 +24,59 @@
   }
 
   var removeCookie = function () {
-    //console.log(getCookie('Client[Area]'));
-    var ClientArea    = getCookie("Client[Area]").length;
-    var ClientService = getCookie("Client[Service]").length;
-    var ClientDate    = getCookie("Client[Date]").length;
-    var ClientTime    = getCookie("Client[Time]").length;
+    if( !!$.cookie("Client[Area]") ){
+      var ClientArea    = $.cookie("Client[Area]").length;
+    }
+    if( !!$.cookie("Client[Service]") ){
+      var ClientService = $.cookie("Client[Service]").length;
+    }
+    if( !!$.cookie("Client[Date]") ){
+      var ClientDate    = $.cookie("Client[Date]").length;
+    }
+    if( !!$.cookie("Client[Time]") ){
+      var ClientTime    = $.cookie("Client[Time]").length;
+    }
 
-    var confirmCatimg   = getCookie("confirm[Catimg]").length;
-    var confirmCategory = getCookie("confirm[Category]").length;
-    var confirmName     = getCookie("confirm[Name]").length;
-    var confirmPrice    = getCookie("confirm[Price]").length;
-    var confirmImage    = getCookie("confirm[Image]").length;
+    if( !!$.cookie("confirm[Catimg]") ){
+      var confirmCatimg   = $.cookie("confirm[Catimg]").length;
+    }
+    if( !!$.cookie("confirm[Category]") ){
+      var confirmCategory = $.cookie("confirm[Category]").length;
+    }
+    if( !!$.cookie("confirm[Name]") ){
+      var confirmName     = $.cookie("confirm[Name]").length;
+    }
+    if( !!$.cookie("confirm[Price]") ){
+      var confirmPrice    = $.cookie("confirm[Price]").length;
+    }
+    if( !!$.cookie("confirm[Image]") ){
+      var confirmImage    = $.cookie("confirm[Image]").length;
+    }
 
-    var signinemail    = getCookie("signin[email]").length;
-    var signinemailid  = getCookie("signin[emailid]").length;
+    if( !!$.cookie("signin[email]") ){
+      var signinemail        = $.cookie("signin[email]");
+      var signinemail_length = $.cookie("signin[email]").length;
+    }
+    if( !!$.cookie("signin[emailid]") ){
+      var signinemailid        = $.cookie("signin[emailid]");
+      var signinemailid_length = $.cookie("signin[emailid]").length;
+    }
 
-    //alert(getCookie('Client["Area"]'));
+    console.log(signinemail);
+    console.log(signinemail_length);
+
+    if( (signinemail_length > 2) && (signinemail != 'null') && (signinemail != '') ) {
+      setCookie('signin[email]', '');
+      setCookie('signin[emailid]', '');
+
+      location.reload();
+    }
 
     return false;
   };
 
   $(document).ready(function() {
-    //$('.sign-out').on('click', removeCookie);
+    $('.sign-out').on('click', removeCookie);
   });
 
   $(window).load(function() {

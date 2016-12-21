@@ -260,8 +260,7 @@ function ASCB_confirm( $atts ) {
   wp_reset_postdata();
 }
 
-// ASCB from Signin and Signup
-
+// ASCB from Signup
 add_shortcode( 'ascb_signup', 'ASCB_signup' );
 function ASCB_signup( $atts ) {
   $title = array();
@@ -288,6 +287,7 @@ function ASCB_signup( $atts ) {
     }
 
     $link_paynow = home_url('appointment-scheduling-client-choose');
+    $link_signin = home_url('appointment-scheduling-signin');
 
     $context = Timber::get_context();
 
@@ -335,7 +335,7 @@ function ASCB_signup( $atts ) {
           if(isset($_COOKIE['Client']['Service'])) {
             wp_redirect($link_paynow);
           } else {
-            wp_redirect('');
+            wp_redirect($link_signin);
           }
         }
       }
@@ -355,6 +355,7 @@ function ASCB_signup( $atts ) {
   wp_reset_postdata();
 }
 
+// ASCB from Signin
 add_shortcode( 'ascb_signin', 'ASCB_signin' );
 function ASCB_signin( $atts ) {
   $title = array();
@@ -382,6 +383,7 @@ function ASCB_signin( $atts ) {
 
 
     $link_paynow = home_url('appointment-scheduling-client-choose');
+    $link_signin = home_url('appointment-scheduling-signin');
 
     $context = Timber::get_context();
 
@@ -406,7 +408,7 @@ function ASCB_signin( $atts ) {
           if(isset($_COOKIE['Client']['Service'])) {
             wp_redirect($link_paynow);
           } else {
-            wp_redirect('');
+            wp_redirect($link_signin);
             //header("refresh: .1");
           }
         } else {

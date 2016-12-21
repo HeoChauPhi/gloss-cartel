@@ -1,19 +1,8 @@
 {% if block_user %}
   <div class="block-user">
-    <a href="#" class="sign-out">Sign Out</a>
+    <span>Hello {{ user_login }} !</span>
+    <a href="/" class="sign-out">Sign Out</a>
   </div>
-  <script type="text/javascript">
-    (function($) {
-      function TestJquery() {
-        // console.log($.cookie('signin[email]'));
-        // $.cookie("signin\[email\]", null);
-      }
-
-      $(document).ready(function() {
-        TestJquery();
-      });
-    })(jQuery);
-  </script>
 {% else %}
   <div class="block-user">
     <a href="{{ function('home_url') }}/appointment-scheduling-signin/" class="sign-in">Sign In</a>
