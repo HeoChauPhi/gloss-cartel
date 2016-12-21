@@ -93,6 +93,25 @@ function ASCB_client_choose( $atts ) {
   ), $atts ) );
 
   ob_start();
+    if( isset($_COOKIE['Client']['Service']) ) {
+      $confirm_end_service = $_COOKIE['Client']['Service'];
+    }
+
+    if( empty($confirm_end_service) ) {
+      setcookie("returnchoose", __('Please Choose Again!', 'ascb'), time() + 3, '/'); // 86400 = 1 day
+
+      foreach ($_COOKIE['Client'] as $key => $value) {
+        unset($_COOKIE['Client['. $key . ']']);
+        setcookie('Client['. $key . ']', null, -1, '/');
+      }
+      foreach ($_COOKIE['confirm'] as $key => $value) {
+        unset($_COOKIE['confirm['. $key . ']']);
+        setcookie('confirm['. $key . ']', null, -1, '/');
+      }
+
+      wp_redirect(home_url());
+    }
+
     $ascb_arr = array();
     $data = asbc_get_apoiment($user_id, $user_key, $url_api);
     $product = asbc_get_apoiment($user_id, $user_key, $product_url);
@@ -120,12 +139,6 @@ function ASCB_client_choose( $atts ) {
     $context['categories'] = Timber::get_terms($tax_name, $args);
     $context['data'] = $data;
 
-    if( isset($_COOKIE['signin']['email']) && !empty($_COOKIE['signin']['email'])) {
-      $context['user_email'] = $_COOKIE['signin']['email'];
-    } else {
-      $context['user_email'] = "";
-    }
-
     if( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POST['action'] == 'Confirm') {
       if( isset($_POST['confirm_category'], $_POST['confirm_name'], $_POST['confirm_price'], $_POST['confirm_duration'], $_POST['confirm_image']) ) {
         $confirm_catimg   = $_POST['confirm_catimg'];
@@ -136,15 +149,37 @@ function ASCB_client_choose( $atts ) {
         $confirm_image      = $_POST['confirm_image'];
       }
 
-      setcookie("confirm", "", -1, '/'); // 86400 = 1 day
-      setcookie("confirm[Catimg]", $confirm_catimg, time() + 3600, '/'); // 86400 = 1 day
-      setcookie("confirm[Category]", $confirm_category, time() + 3600, '/'); // 86400 = 1 day
-      setcookie("confirm[Name]", $confirm_name, time() + 3600, '/'); // 86400 = 1 day
-      setcookie("confirm[Price]", $confirm_price, time() + 3600, '/'); // 86400 = 1 day
-      setcookie("confirm[Duration]", $confirm_duration, time() + 3600, '/'); // 86400 = 1 day
-      setcookie("confirm[Image]", $confirm_image, time() + 3600, '/'); // 86400 = 1 day
+      if( isset($_COOKIE['signin']['email'], $_COOKIE['Client']['Service'], $_COOKIE['Client']['Date'], $_COOKIE['Client']['Time']) ) {
+        $confirm_end_email    = $_COOKIE['signin']['email'];
+        $confirm_end_service  = $_COOKIE['Client']['Service'];
+        $confirm_end_date     = $_COOKIE['Client']['Date'];
+        $confirm_end_time     = $_COOKIE['Client']['Time'];
+      }
 
-      wp_redirect($link);
+      if( empty($confirm_end_email) || empty($confirm_end_service) || empty($confirm_end_date) || empty($confirm_end_time) ) {
+        setcookie("returnchoose", __('Please Choose Again!', 'ascb'), time() + 3, '/'); // 86400 = 1 day
+
+        foreach ($_COOKIE['Client'] as $key => $value) {
+          unset($_COOKIE['Client['. $key . ']']);
+          setcookie('Client['. $key . ']', null, -1, '/');
+        }
+        foreach ($_COOKIE['confirm'] as $key => $value) {
+          unset($_COOKIE['confirm['. $key . ']']);
+          setcookie('confirm['. $key . ']', null, -1, '/');
+        }
+
+        wp_redirect(home_url());
+      } else {
+        setcookie("confirm", "", -1, '/'); // 86400 = 1 day
+        setcookie("confirm[Catimg]", $confirm_catimg, time() + 3600, '/'); // 86400 = 1 day
+        setcookie("confirm[Category]", $confirm_category, time() + 3600, '/'); // 86400 = 1 day
+        setcookie("confirm[Name]", $confirm_name, time() + 3600, '/'); // 86400 = 1 day
+        setcookie("confirm[Price]", $confirm_price, time() + 3600, '/'); // 86400 = 1 day
+        setcookie("confirm[Duration]", $confirm_duration, time() + 3600, '/'); // 86400 = 1 day
+        setcookie("confirm[Image]", $confirm_image, time() + 3600, '/'); // 86400 = 1 day
+
+        wp_redirect($link);
+      }
     }
 
     if( isset($_COOKIE['signin']['email']) && !empty($_COOKIE['signin']['email'])) {
@@ -176,6 +211,25 @@ function ASCB_confirm( $atts ) {
 
   ob_start();
     $link = home_url('appointment-scheduling-success');
+
+    if( isset($_COOKIE['Client']['Service']) ) {
+      $confirm_end_service = $_COOKIE['Client']['Service'];
+    }
+
+    if( empty($confirm_end_service) ) {
+      setcookie("returnchoose", __('Please Choose Again!', 'ascb'), time() + 3, '/'); // 86400 = 1 day
+
+      foreach ($_COOKIE['Client'] as $key => $value) {
+        unset($_COOKIE['Client['. $key . ']']);
+        setcookie('Client['. $key . ']', null, -1, '/');
+      }
+      foreach ($_COOKIE['confirm'] as $key => $value) {
+        unset($_COOKIE['confirm['. $key . ']']);
+        setcookie('confirm['. $key . ']', null, -1, '/');
+      }
+
+      wp_redirect(home_url());
+    }
 
     $context = Timber::get_context();
 
