@@ -26,6 +26,18 @@ add_action( 'after_setup_theme', 'wf_setup' );
 // Theme support custom logo
 add_theme_support( 'post-thumbnails' );
 
+// Add body class
+add_filter( 'body_class', 'sp_body_class' );
+function sp_body_class( $classes ) {
+  global $post;
+
+  if ( isset( $post ) ) {
+    $classes[] = $post->post_type . '-' . $post->post_name;
+  }
+
+  return $classes;
+}
+
 // Unset URL from comment form
 function wf_move_comment_form_below( $fields ) {
     $comment_field = $fields['comment'];
