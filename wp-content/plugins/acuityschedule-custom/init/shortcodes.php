@@ -11,6 +11,7 @@ function ascbAjax_callback() {
   wp_die();
 }
 
+// Feature choose
 add_shortcode( 'ascb_scheduling', 'ASCB_acuityscheduling' );
 function ASCB_acuityscheduling( $atts ) {
   $options = get_option('ascb_board_settings');
@@ -53,6 +54,9 @@ function ASCB_acuityscheduling( $atts ) {
         $context['time_message'] = __('Please choose Time', 'ascb');
         wp_redirect('');
       } else if( !empty($client_area) || !empty($client_service) || !empty($client_date) || !empty($client_time) ) {
+        unset($_COOKIE['returnchoose']);
+        setcookie('returnchoose', null, -1, '/');
+
         setcookie("Client", "", -1, '/'); // 86400 = 1 day
         setcookie("Client[Area]", $client_area, time() + 3600, '/'); // 86400 = 1 day
         setcookie("Client[Service]", $client_service, time() + 3600, '/'); // 86400 = 1 day
@@ -158,7 +162,6 @@ function ASCB_client_choose( $atts ) {
 }
 
 // ASCB from Confirm
-
 add_shortcode( 'ascb_confirm', 'ASCB_confirm' );
 function ASCB_confirm( $atts ) {
   $options = get_option('ascb_board_settings');
@@ -176,7 +179,7 @@ function ASCB_confirm( $atts ) {
 
     $context = Timber::get_context();
 
-    if( isset($_COOKIE['Client'], $_COOKIE['confirm'], $_COOKIE['signin']) ) {
+    if( isset($_COOKIE['confirm']['Catimg'], $_COOKIE['confirm']['Name'], $_COOKIE['Client']['Date'], $_COOKIE['Client']['Time'], $_COOKIE['confirm']['Price'], $_COOKIE['Client']['Service']) ) {
       // fields show
       $context['cat_img']       = $_COOKIE['confirm']['Catimg'];
       $context['confirm_title'] = $_COOKIE['confirm']['Name'];
@@ -206,20 +209,31 @@ function ASCB_confirm( $atts ) {
     }
 
     if( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POST['action'] == 'Confirm') {
-      if( isset($_POST['confirm_id'], $_POST['confirm_datetime'], $_POST['confirm_firstName'], $_POST['confirm_lastName'], $_POST['confirm_email'], $_POST['confirm_phone']) ) {
+      if( isset($_POST['confirm_id'], $_POST['confirm_datetime'], $_POST['confirm_firstName'], $_POST['confirm_lastName'], $_POST['confirm_email'], $_POST['confirm_phone'], $_POST['confirm_area'], $_POST['confirm_note']) ) {
         $confirm_end_id         = $_POST['confirm_id'];
         $confirm_end_datetime   = $_POST['confirm_datetime'];
         $confirm_end_firstName  = $_POST['confirm_firstName'];
         $confirm_end_lastName   = $_POST['confirm_lastName'];
         $confirm_end_email      = $_POST['confirm_email'];
         $confirm_end_phone      = $_POST['confirm_phone'];
+        $confirm_end_area       = $_POST['confirm_area'];
+        $confirm_end_note       = $_POST['confirm_note'];
       }
 
       if( empty($confirm_end_phone) ) {
         $context['message_phone'] = __('Phone is Require!', 'ascb');
       } else if( empty($confirm_end_id) || empty($confirm_end_datetime) || empty($confirm_end_firstName) || empty($confirm_end_lastName) || empty($confirm_end_email) ) {
-        $context['message_confirm_end'] = __('Please rechoose!', 'ascb');
-        wp_redirect('');
+        setcookie("returnchoose", __('Please Choose Again!', 'ascb'), time() + 3, '/'); // 86400 = 1 day
+        foreach ($_COOKIE['Client'] as $key => $value) {
+          unset($_COOKIE['Client['. $key . ']']);
+          setcookie('Client['. $key . ']', null, -1, '/');
+        }
+        foreach ($_COOKIE['confirm'] as $key => $value) {
+          unset($_COOKIE['confirm['. $key . ']']);
+          setcookie('confirm['. $key . ']', null, -1, '/');
+        }
+
+        wp_redirect(home_url());
       } else {
         $acuity = new AcuityScheduling(array(
           'userId' => $user_id,
@@ -234,7 +248,8 @@ function ASCB_confirm( $atts ) {
             'firstName'         => $confirm_end_firstName,
             'lastName'          => $confirm_end_lastName,
             'email'             => $confirm_end_email,
-            'phone'             => $confirm_end_phone
+            'phone'             => $confirm_end_phone,
+            'notes'             => $confirm_end_note
           )
         ));
 
@@ -317,7 +332,6 @@ function ASCB_signup( $atts ) {
         } else {
           setcookie("signin", "", time() - 86400, '/'); // 86400 = 1 day
           setcookie("signin[email]", $signup_email, time() + 86400, '/'); // 86400 = 1 day
-          setcookie("signin[emailid]", $email_convert, time() + 86400, '/'); // 86400 = 1 day
 
           $new_post = array(
             'post_title'    =>   $signup_email,
@@ -403,7 +417,6 @@ function ASCB_signin( $atts ) {
         if( array_key_exists($email_convert, $title) && $signin_password == $title[$email_convert] ) {
           setcookie("signin", "", time() - 86400, '/'); // 86400 = 1 day
           setcookie("signin[email]", $signin_email, time() + 86400, '/'); // 86400 = 1 day
-          setcookie("signin[emailid]", $email_convert, time() + 86400, '/'); // 86400 = 1 day
 
           if(isset($_COOKIE['Client']['Service'])) {
             wp_redirect($link_paynow);
@@ -441,6 +454,23 @@ function ASCB_block_user( $atts ) {
     $context = Timber::get_context();
 
     Timber::render('templates/block-user.twig', $context);
+
+    $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+  wp_reset_postdata();
+}
+
+// Success
+add_shortcode( 'ascb_success', 'ASCB_success' );
+function ASCB_success( $atts ) {
+  extract( shortcode_atts( array(
+  ), $atts ) );
+
+  ob_start();
+    $context = Timber::get_context();
+
+    Timber::render('templates/appointment-scheduling-success.twig', $context);
 
     $content = ob_get_contents();
   ob_end_clean();

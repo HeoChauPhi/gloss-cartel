@@ -75,8 +75,18 @@
     return false;
   };
 
+  var backLink = function () {
+    parent.history.back();
+    return false;
+  }
+
   $(document).ready(function() {
+    if( !!$.cookie("returnchoose") ){
+      var returnchoose    = $.cookie("returnchoose");
+      alert(returnchoose);
+    }
     $('.sign-out').on('click', removeCookie);
+    $('.back-link').on('click', backLink);
   });
 
   $(window).load(function() {
