@@ -87,6 +87,7 @@
     }
     $('.sign-out').on('click', removeCookie);
     $('.back-link').on('click', backLink);
+    $('input[name*="client_date"]').datepicker();
   });
 
   $(window).load(function() {

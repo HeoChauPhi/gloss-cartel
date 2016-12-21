@@ -41,17 +41,19 @@ function ASCB_acuityscheduling( $atts ) {
 
     if( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POST['action'] == 'Book Now' ) {
       if( isset($_POST['client_area'], $_POST['client_service'], $_POST['client_date'], $_POST['client_time']) ) {
-        $client_area = $_POST['client_area'];
-        $client_service = $_POST['client_service'];
-        $client_date = $_POST['client_date'];
-        $client_time = $_POST['client_time'];
+        $client_area        = $_POST['client_area'];
+        $client_service     = $_POST['client_service'];
+        $client_time        = $_POST['client_time'];
+
+        $client_date_input  = date_create($_POST['client_date']);
+        $client_date        = date_format($client_date_input, 'Y-m-d');
       }
 
       if( empty($client_area) || empty($client_service) || empty($client_date) || empty($client_time) ) {
-        $context['area_message'] = __('Please enter Your Area', 'ascb');
+        $context['area_message']    = __('Please enter Your Area', 'ascb');
         $context['service_message'] = __('Please choose Service', 'ascb');
-        $context['date_message'] = __('Please choose Date', 'ascb');
-        $context['time_message'] = __('Please choose Time', 'ascb');
+        $context['date_message']    = __('Please choose Date', 'ascb');
+        $context['time_message']    = __('Please choose Time', 'ascb');
         wp_redirect('');
       } else if( !empty($client_area) || !empty($client_service) || !empty($client_date) || !empty($client_time) ) {
         unset($_COOKIE['returnchoose']);
