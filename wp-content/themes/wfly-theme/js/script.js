@@ -109,13 +109,12 @@
     matchHeight();
     scrolldown();
 
-
     var hunghtfeature = $('.box-feature').height();
     var hunghtfeature1 = $('.box-form-login').outerHeight();
-    $('.form-schedule-feature').css('top', hunghtfeature - 258 + 'px');
-    if( hunghtfeature1 > 530 ) {
+    if( hunghtfeature1 > 500 ) {
       $('.box-feature__iamge').css('height', 825 + 'px');
     }
+    $('.form-schedule-feature').css('top', hunghtfeature - 278 + 'px');
   });
 
   $(window).load(function() {

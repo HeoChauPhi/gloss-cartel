@@ -601,9 +601,6 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 /* line 88, ../scss/_myaccount.scss */
 .box-menu-myaccount {
   display: flex;
-  position: absolute;
-  top: 0;
-  right: 40px;
   align-items: center;
   display: flex;
   flex-wrap: wrap;
@@ -885,4 +882,30 @@ nav#main-navigation {
   font-weight: bold;
   transform: translateX(-50%);
   margin-right: 1px;
+}
+
+/* line 235, ../scss/customs.scss */
+.page-appointment-scheduling-confirm .group-info {
+  margin: 0 -50px;
+}
+
+/* line 239, ../scss/customs.scss */
+.page-appointment-scheduling-confirm .group-image .cat-img {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  line-height: 0;
+  max-height: 200px;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* line 249, ../scss/customs.scss */
+.page-appointment-scheduling-confirm .group-image .cat-img img {
+  visibility: hidden;
+}
+
+/* line 253, ../scss/customs.scss */
+img {
+  max-width: 100%;
 }
